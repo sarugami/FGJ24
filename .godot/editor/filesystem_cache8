@@ -1,7 +1,11 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1706296582
+::res://::1706298479
 aaa.txt::TextFile::-1::1706296424::0::1::::<><>::
-game.tscn::PackedScene::5702915079509627321::1706295790::0::1::::<><>::uid://dntbubkn7i4aa::::res://player.tscn<>uid://14u5m4ybcwtm::::res://icon.svg
+game.tscn::PackedScene::5702915079509627321::1706298453::0::1::::<><>::uid://dntbubkn7i4aa::::res://player.tscn<>uid://14u5m4ybcwtm::::res://icon.svg
 icon.svg::CompressedTexture2D::1886045479300472650::1706294043::1706295706::1::::<><>::
-player.gd::GDScript::-1::1706295734::0::1::::<>CharacterBody3D<>::
-player.tscn::PackedScene::8111036697176889812::1706295916::0::1::::<><>::res://player.gd
+player.gd::GDScript::-1::1706298453::0::1::::<>CharacterBody3D<>::
+player.tscn::PackedScene::8111036697176889812::1706298453::0::1::::<><>::res://player.gd
+UI_heat.png::CompressedTexture2D::5816073778294380311::1706298453::1706298474::1::::<><>::
+::res://Sprites/::1706298489
+circle.png::CompressedTexture2D::5085632243813050868::1706298489::1706298500::1::::<><>::
+square.png::CompressedTexture2D::4338305871070363739::1706298489::1706298489::1::::<><>::
