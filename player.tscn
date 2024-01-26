@@ -8,6 +8,7 @@ height = 1.22353
 
 [node name="Player" type="CharacterBody3D"]
 script = ExtResource("1_4qlm8")
+DASH_LENGTH = 10.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.675, 0)
@@ -28,3 +29,10 @@ transform = Transform3D(0.2, 0, 0, 0, -6.55671e-09, -0.15, 0, 0.15, -6.55671e-09
 modulate = Color(0, 0, 0, 0.203922)
 alpha_cut = 2
 texture = ExtResource("2_p2rli")
+
+[node name="DashTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="DashTime" type="Timer" parent="."]
+
+[connection signal="timeout" from="DashTimer" to="." method="_on_timer_timeout"]
