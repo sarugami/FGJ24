@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://dntbubkn7i4aa"]
+
+[ext_resource type="Script" path="res://player.gd" id="1_4qlm8"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_74j06"]
+height = 1.22353
+
+[node name="Player" type="CharacterBody3D"]
+script = ExtResource("1_4qlm8")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_74j06")
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="."]
+height = 1.0
