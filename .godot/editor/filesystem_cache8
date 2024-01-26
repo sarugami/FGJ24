@@ -1,7 +1,8 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1706296582
-aaa.txt::TextFile::-1::1706296424::0::1::::<><>::
-game.tscn::PackedScene::5702915079509627321::1706295790::0::1::::<><>::uid://dntbubkn7i4aa::::res://player.tscn<>uid://14u5m4ybcwtm::::res://icon.svg
-icon.svg::CompressedTexture2D::1886045479300472650::1706294043::1706295706::1::::<><>::
-player.gd::GDScript::-1::1706295734::0::1::::<>CharacterBody3D<>::
-player.tscn::PackedScene::8111036697176889812::1706295916::0::1::::<><>::res://player.gd
+::res://::1706298194
+aaa.txt::TextFile::-1::1706296765::0::1::::<><>::
+game.tscn::PackedScene::5702915079509627321::1706297885::0::1::::<><>::uid://dntbubkn7i4aa::::res://player.tscn<>uid://14u5m4ybcwtm::::res://icon.svg
+icon.svg::CompressedTexture2D::1886045479300472650::1706211072::1706296903::1::::<><>::
+player.gd::GDScript::-1::1706296776::0::1::::<>CharacterBody3D<>::
+player.tscn::PackedScene::8111036697176889812::1706296790::0::1::::<><>::res://player.gd
+UI_heat.png::CompressedTexture2D::5816073778294380311::1706298194::1706298208::1::::<><>::
