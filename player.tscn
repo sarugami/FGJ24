@@ -17,11 +17,10 @@ shape = SubResource("CapsuleShape3D_74j06")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
-process_priority = 3
 transform = Transform3D(0.25, 0, 0, 0, 0.0647048, 0.241481, 0, -0.241481, 0.0647048, 0, 0.01, 0)
 offset = Vector2(0, 256)
 modulate = Color(1, 0, 1, 1)
-alpha_cut = 2
+render_priority = 2
 texture = ExtResource("2_p2rli")
 
 [node name="shadow" type="Sprite3D" parent="."]
