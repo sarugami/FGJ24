@@ -3,14 +3,17 @@ extends CharacterBody3D
 @export var PLAYER_NUMBER = 1
 @export var SPEED = 5.0
 @export var DASH_LENGTH = 2.5
+@export var DASH_SPEED = 25
 @export var PLAYER_COLOR = Color("green")
 
 @onready var marker_3d = $Marker3D
 @onready var sprite_3d = $Sprite3D
+@onready var dash_timer = $DashTimer
 
 var direction
 var can_dash = true
 var dash_destination
+var dash_starting_point
 
 func _ready():
 	sprite_3d.modulate = PLAYER_COLOR
@@ -23,9 +26,10 @@ func _physics_process(delta):
 	direction = (transform.basis * Vector3(movement_direction.x, 0, movement_direction.y)).normalized()
 	var aim = (transform.basis * Vector3(aim_direction.x, 0, aim_direction.y)).normalized()
 	if dash_destination:
-		velocity.x = move_toward(dash_destination.x, DASH_LENGTH, 0)
-		velocity.z = move_toward(dash_destination.z, DASH_LENGTH, 0)
-		if position.distance_to(dash_destination) <= 0:
+		velocity.x = move_toward(dash_destination.x, DASH_SPEED, 1)
+		velocity.z = move_toward(dash_destination.z, DASH_SPEED, 1)
+		print_debug("distance to dash destination: " + str(position.distance_to(dash_starting_point)))
+		if position.distance_to(dash_starting_point) >= DASH_LENGTH:
 			print_debug("reset dash location")
 			dash_destination = null
 	elif direction:
@@ -47,7 +51,9 @@ func _input(event):
 func dash():
 	if direction && can_dash:
 		can_dash = false
+		dash_starting_point = position
 		dash_destination = direction * DASH_LENGTH
+		dash_timer.start()
 
 func _on_timer_timeout():
 	can_dash = true
