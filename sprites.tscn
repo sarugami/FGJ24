@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://o2fddfxi4xa1"]
+[gd_scene load_steps=11 format=3 uid="uid://cujgqoyxca3pc"]
 
 [ext_resource type="Texture2D" uid="uid://dj5lbfo4yodoj" path="res://Sprites/Char/bonk_leg.png" id="1_7l88u"]
 [ext_resource type="Texture2D" uid="uid://c0rwsoiwfebrq" path="res://Sprites/Char/bonk_ear.png" id="2_p6jv0"]
