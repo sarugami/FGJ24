@@ -2,14 +2,17 @@ extends CharacterBody3D
 
 @export var PLAYER_NUMBER = 1
 @export var SPEED = 5.0
+@export var FRICTION = 1.5
 @export var DASH_LENGTH = 2.5
 @export var DASH_SPEED = 25
 @export var PLAYER_COLOR = Color("green")
 
 @onready var sprite_3d = $Sprite3D
 @onready var dash_timer = $DashTimer
+@onready var bonk_cherge_timer = $BonkChargeTimer
 @onready var marker_3d = $AttackArea/Marker3D
 @onready var attackArea = $AttackArea
+@onready var attackAreaCollider = $AttackArea/Marker3D/Area3D/CollisionShape3D
 @onready var csg_cylinder_3d = $AttackArea/Marker3D/Area3D/CSGCylinder3D
 
 var direction
@@ -28,19 +31,17 @@ func _physics_process(_delta):
 	direction = (transform.basis * Vector3(movement_direction.x, 0, movement_direction.y)).normalized()
 	var aim = (transform.basis * Vector3(aim_direction.x, 0, aim_direction.y)).normalized()
 	if dash_destination:
-		velocity.x = move_toward(position.x, dash_destination.x, DASH_SPEED)
-		velocity.z = move_toward(position.z,dash_destination.z, DASH_SPEED)
 		if position.distance_to(dash_starting_point) >= DASH_LENGTH:
 			dash_destination = null
 	elif direction:
 		velocity.x = direction.x * SPEED
 		velocity.z = direction.z * SPEED
 	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
-		velocity.z = move_toward(velocity.z, 0, SPEED)
+		velocity.x = move_toward(velocity.x, 0, FRICTION)
+		velocity.z = move_toward(velocity.z, 0, FRICTION)
 		
 	if aim:
-		attackArea.rotation.y = move_toward(attackArea.rotation.y, Vector2(aim_direction.x, aim_direction.y * -1).angle(), 0.2)
+		attackArea.rotation.y = Vector2(aim_direction.x, aim_direction.y * -1).angle()
 
 	move_and_slide()
 
@@ -49,16 +50,28 @@ func _input(event):
 		dash()
 	elif event.is_action_pressed("attack_" + str(PLAYER_NUMBER)):
 		attack()
+	elif event.is_action_released("attack_" + str(PLAYER_NUMBER)):
+		cancelAttack()
 
 func dash():
 	if direction && can_dash:
 		can_dash = false
+		velocity.x += direction.x * DASH_SPEED
+		velocity.z += direction.z * DASH_SPEED
+		
 		dash_starting_point = position
 		dash_destination = direction * DASH_LENGTH
 		dash_timer.start()
 
 func attack():
-	pass
+	bonk_cherge_timer.start()
 
-func _on_timer_timeout():
+func cancelAttack():
+	bonk_cherge_timer.stop()
+
+func _on_bonk_charge_timer_timeout():
+	attackAreaCollider.disabled = false
+
+
+func _on_dash_timer_timeout():
 	can_dash = true
