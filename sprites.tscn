@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://o2fddfxi4xa1"]
+[gd_scene load_steps=11 format=3 uid="uid://o2fddfxi4xa1"]
 
 [ext_resource type="Texture2D" uid="uid://dj5lbfo4yodoj" path="res://Sprites/Char/bonk_leg.png" id="1_7l88u"]
 [ext_resource type="Texture2D" uid="uid://c0rwsoiwfebrq" path="res://Sprites/Char/bonk_ear.png" id="2_p6jv0"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://ttitylyqepyh" path="res://Sprites/Char/bonk_eyeR.png" id="7_xs7ty"]
 [ext_resource type="Texture2D" uid="uid://crsr2vf1juxbl" path="res://Sprites/Char/bonk_pupilR.png" id="8_i2fsk"]
 [ext_resource type="Texture2D" uid="uid://dioo7ikskmtps" path="res://Sprites/Char/bonk_body.png" id="9_fp5vi"]
+[ext_resource type="Texture2D" uid="uid://l30p4ub640xi" path="res://Sprites/Char/bonk_decal.png" id="10_qeqij"]
 
 [node name="Sprites" type="Node3D"]
 
@@ -68,3 +69,8 @@ texture = ExtResource("8_i2fsk")
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0.428156, 0)
 render_priority = 10
 texture = ExtResource("9_fp5vi")
+
+[node name="Decal" type="Sprite3D" parent="Body"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+render_priority = 11
+texture = ExtResource("10_qeqij")
