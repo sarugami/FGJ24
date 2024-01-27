@@ -13,9 +13,9 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	var playersAlive = []
-	for player in players:
-		if player.visible:
-			playersAlive.append(player)
+	#for player in players:
+		#if player.visible:
+			#playersAlive.append(player)
 	
 	if playersAlive.count <= 1:
 		#TODO: give hat and end round
