@@ -1,0 +1,70 @@
+[gd_scene load_steps=10 format=3 uid="uid://o2fddfxi4xa1"]
+
+[ext_resource type="Texture2D" uid="uid://dj5lbfo4yodoj" path="res://Sprites/Char/bonk_leg.png" id="1_7l88u"]
+[ext_resource type="Texture2D" uid="uid://c0rwsoiwfebrq" path="res://Sprites/Char/bonk_ear.png" id="2_p6jv0"]
+[ext_resource type="Texture2D" uid="uid://bjhoxyag80jsm" path="res://Sprites/Char/bonk_eyeL.png" id="3_s6mwh"]
+[ext_resource type="Texture2D" uid="uid://cgdresgip174o" path="res://Sprites/Char/bonk_pupilL.png" id="4_u8vub"]
+[ext_resource type="Texture2D" uid="uid://bsprc5gid1612" path="res://Sprites/Char/bonk_mouth.png" id="5_csb16"]
+[ext_resource type="Texture2D" uid="uid://0b83sgcbt2iv" path="res://Sprites/Char/bonk_nose.png" id="6_doi40"]
+[ext_resource type="Texture2D" uid="uid://ttitylyqepyh" path="res://Sprites/Char/bonk_eyeR.png" id="7_xs7ty"]
+[ext_resource type="Texture2D" uid="uid://crsr2vf1juxbl" path="res://Sprites/Char/bonk_pupilR.png" id="8_i2fsk"]
+[ext_resource type="Texture2D" uid="uid://dioo7ikskmtps" path="res://Sprites/Char/bonk_body.png" id="9_fp5vi"]
+
+[node name="Sprites" type="Node3D"]
+
+[node name="LegR" type="Sprite3D" parent="."]
+transform = Transform3D(0.25, 0, 0, 0, 0.249999, 0, 0, 0, 0.249999, 0.207797, 0.22568, 0)
+render_priority = 9
+texture = ExtResource("1_7l88u")
+
+[node name="LegL" type="Sprite3D" parent="."]
+transform = Transform3D(0.25, 0, 0, 0, 0.249999, 0, 0, 0, 0.249999, -0.21736, 0.243254, 0)
+render_priority = 9
+texture = ExtResource("1_7l88u")
+
+[node name="EarR" type="Sprite3D" parent="."]
+transform = Transform3D(0.25, 0, 0, 0, 0.249999, 0, 0, 0, 0.249999, 0.195608, 0.541263, 0)
+render_priority = 8
+texture = ExtResource("2_p6jv0")
+
+[node name="EarL" type="Sprite3D" parent="."]
+transform = Transform3D(-0.25, 0, 0, 0, 0.249999, 0, 0, 0, 0.249999, -0.175967, 0.563312, 0)
+render_priority = 8
+texture = ExtResource("2_p6jv0")
+
+[node name="EyeL" type="Sprite3D" parent="."]
+transform = Transform3D(-0.25, 0, 0, 0, 0.249999, 0, 0, 0, 0.249999, -0.310825, 0.384703, 0)
+modulate = Color(1, 0.901961, 0.352941, 1)
+render_priority = 12
+texture = ExtResource("3_s6mwh")
+
+[node name="EyeLPupil" type="Sprite3D" parent="."]
+transform = Transform3D(0.25, 0, 0, 0, 0.249999, 0, 0, 0, 0.249999, -0.34425, 0.369061, 0)
+render_priority = 13
+texture = ExtResource("4_u8vub")
+
+[node name="Mouth" type="Sprite3D" parent="."]
+transform = Transform3D(0.25, 0, 0, 0, 0.249999, 0, 0, 0, 0.249999, -0.1, 0.15375, 0)
+render_priority = 11
+texture = ExtResource("5_csb16")
+
+[node name="Nose" type="Sprite3D" parent="."]
+transform = Transform3D(0.25, 0, 0, 0, 0.249999, 0, 0, 0, 0.249999, -0.126041, 0.282514, 0)
+render_priority = 14
+texture = ExtResource("6_doi40")
+
+[node name="EyeR" type="Sprite3D" parent="."]
+transform = Transform3D(0.25, 0, 0, 0, 0.249999, 0, 0, 0, 0.249999, 0.161398, 0.334906, 0)
+modulate = Color(1, 0.901961, 0.352941, 1)
+render_priority = 15
+texture = ExtResource("7_xs7ty")
+
+[node name="EyeRPupil" type="Sprite3D" parent="."]
+transform = Transform3D(0.25, 0, 0, 0, 0.249999, 0, 0, 0, 0.249999, 0.206515, 0.324715, 0)
+render_priority = 16
+texture = ExtResource("8_i2fsk")
+
+[node name="Body" type="Sprite3D" parent="."]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0.428156, 0)
+render_priority = 10
+texture = ExtResource("9_fp5vi")
