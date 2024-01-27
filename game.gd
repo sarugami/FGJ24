@@ -17,7 +17,7 @@ func _process(delta):
 		#if player.visible:
 			#playersAlive.append(player)
 	
-	if playersAlive.count <= 1:
+	#if playersAlive.count <= 1:
 		#TODO: give hat and end round
-		pass
+		#pass
 
