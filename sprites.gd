@@ -2,8 +2,8 @@ extends Node3D
 
 
 func play_idle_animation():
-	%Animation.play("idle")
+	%Animation.play("Idle")
 
 
-func play_walk_animation():
-	%Animation.play("walk")
+func play_run_animation():
+	%Animation.play("Run")
