@@ -25,6 +25,8 @@ var direction
 var can_dash = true
 var dash_destination
 var dash_starting_point
+var bonk_ready = false
+var movement_enabled = true
 
 func _ready():
 	#sprite_3d.modulate = PLAYER_COLOR
@@ -37,7 +39,6 @@ func _ready():
 	(sprites.find_child("Decal") as Sprite3D).modulate = PLAYER_COLOR_HIGHLIGHT
 	(sprites.find_child("Mouth") as Sprite3D).modulate = Color("white")
 
-
 func _physics_process(_delta):
 	## input handling
 	var movement_direction = Input.get_vector("left_" + str(PLAYER_NUMBER), "right_" + str(PLAYER_NUMBER), "up_" + str(PLAYER_NUMBER), "down_" + str(PLAYER_NUMBER))
@@ -48,13 +49,18 @@ func _physics_process(_delta):
 	if dash_destination:
 		if position.distance_to(dash_starting_point) >= DASH_LENGTH:
 			dash_destination = null
-	elif direction:
+	elif direction && movement_enabled:
 		velocity.x = direction.x * SPEED
 		velocity.z = direction.z * SPEED
 	else:
 		velocity.x = move_toward(velocity.x, 0, FRICTION)
 		velocity.z = move_toward(velocity.z, 0, FRICTION)
 		
+	if !velocity && (sprites.find_child("Animation") as AnimationPlayer).current_animation != "Idle":
+		(sprites.find_child("Animation") as AnimationPlayer).play("Idle")
+	elif velocity && (sprites.find_child("Animation") as AnimationPlayer).current_animation != "Run": 
+		(sprites.find_child("Animation") as AnimationPlayer).play("Run")
+	
 	if aim:
 		attackArea.rotation.y = Vector2(aim_direction.x, aim_direction.y * -1).angle()
 
@@ -90,17 +96,19 @@ func dash():
 		dash_timer.start()
 
 func attack():
-	print_debug("start attack")
+	movement_enabled = false
 	bonk_cherge_timer.start()
 
 func cancelAttack():
-	print_debug("cancel attack")
-	bonk_cherge_timer.stop()
+	movement_enabled = true
+	if !bonk_ready: 
+		bonk_cherge_timer.stop()
+	else:
+		attackAreaCollider.disabled = false
+		bonk_effect_timer.start()
 
 func _on_bonk_charge_timer_timeout():
-	print_debug("bonk")
-	attackAreaCollider.disabled = false
-	bonk_effect_timer.start()
+	bonk_ready = true
 
 func _on_dash_timer_timeout():
 	can_dash = true
@@ -109,14 +117,21 @@ func _on_dash_timer_timeout():
 func _on_player_collision_area_area_entered(area):
 	print_debug("Area collided: " + str(area.global_position))
 	print_debug("Current position: " + str(position))
-	velocity = (area.position - position) * BOUNCE_SPEED
+
+	velocity = Vector3(clamp(area.global_position.x - position.x, -10, 10) * BOUNCE_SPEED, 0, clamp(area.global_position.z - position.z, -10, 10) * BOUNCE_SPEED)
+	print_debug("Bonk velocity: " + str(velocity))
+	movement_enabled = false
 
 func _on_player_collision_area_body_entered(body):
 	if !dash_destination:
-		print_debug(str(PLAYER_NUMBER) + " entered collider velocity: " + str(body.velocity))
+		#print_debug(str(PLAYER_NUMBER) + " entered collider velocity: " + str(body.velocity))
 		velocity = body.velocity
 
 
 func _on_bonk_effect_timer_timeout():
 	attackAreaCollider.disabled = true
 
+
+
+func _on_stun_timer_timeout():
+	movement_enabled = true
