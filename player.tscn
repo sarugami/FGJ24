@@ -16,14 +16,14 @@ DASH_LENGTH = 4.0
 DASH_SPEED = 100
 
 [node name="Sprites" parent="." instance=ExtResource("2_47dxv")]
-transform = Transform3D(1, 0, 0, 0, 0.258819, 0.965926, 0, -0.965926, 0.258819, 0, 0, 0.124517)
+transform = Transform3D(1, 0, 0, 0, 0.258819, 0.965926, 0, -0.965926, 0.258819, 0, 0, 0.193075)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.675, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.584238, 0)
 shape = SubResource("CapsuleShape3D_74j06")
 
 [node name="shadow" type="Sprite3D" parent="."]
-transform = Transform3D(0.166, 0, 0, 0, -5.46392e-09, -0.125, 0, 0.125, -5.46392e-09, 0, 0, 0)
+transform = Transform3D(0.15, 0, 0, 0, -6.55671e-09, -0.15, 0, 0.15, -6.55671e-09, 0, 0, 0)
 modulate = Color(0, 0, 0, 0.203922)
 alpha_cut = 2
 texture = ExtResource("2_p2rli")
@@ -46,6 +46,7 @@ shape = SubResource("CylinderShape3D_ityrd")
 disabled = true
 
 [node name="CSGCylinder3D" type="CSGCylinder3D" parent="AttackArea/Marker3D/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.715731, 0)
 radius = 0.491717
 height = 0.0173324
 
