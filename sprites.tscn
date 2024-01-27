@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://o2fddfxi4xa1"]
+[gd_scene load_steps=13 format=3 uid="uid://o2fddfxi4xa1"]
 
 [ext_resource type="Texture2D" uid="uid://dj5lbfo4yodoj" path="res://Sprites/Char/bonk_leg.png" id="1_7l88u"]
 [ext_resource type="Texture2D" uid="uid://c0rwsoiwfebrq" path="res://Sprites/Char/bonk_ear.png" id="2_p6jv0"]
@@ -10,6 +10,28 @@
 [ext_resource type="Texture2D" uid="uid://crsr2vf1juxbl" path="res://Sprites/Char/bonk_pupilR.png" id="8_i2fsk"]
 [ext_resource type="Texture2D" uid="uid://dioo7ikskmtps" path="res://Sprites/Char/bonk_body.png" id="9_fp5vi"]
 [ext_resource type="Texture2D" uid="uid://l30p4ub640xi" path="res://Sprites/Char/bonk_decal.png" id="10_qeqij"]
+
+[sub_resource type="Animation" id="Animation_0q2ms"]
+resource_name = "Idle"
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Body")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array()
+tracks/1/type = "rotation_3d"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Body")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array()
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_nj6ty"]
+_data = {
+"Idle": SubResource("Animation_0q2ms")
+}
 
 [node name="Sprites" type="Node3D"]
 
@@ -23,24 +45,14 @@ transform = Transform3D(0.25, 0, 0, 0, 0.249999, 0, 0, 0, 0.249999, -0.21736, 0.
 render_priority = 9
 texture = ExtResource("1_7l88u")
 
-[node name="EarR" type="Sprite3D" parent="."]
-transform = Transform3D(0.25, 0, 0, 0, 0.249999, 0, 0, 0, 0.249999, 0.195608, 0.541263, 0)
-render_priority = 8
-texture = ExtResource("2_p6jv0")
-
-[node name="EarL" type="Sprite3D" parent="."]
-transform = Transform3D(-0.25, 0, 0, 0, 0.249999, 0, 0, 0, 0.249999, -0.175967, 0.563312, 0)
-render_priority = 8
-texture = ExtResource("2_p6jv0")
-
 [node name="EyeL" type="Sprite3D" parent="."]
 transform = Transform3D(-0.25, 0, 0, 0, 0.249999, 0, 0, 0, 0.249999, -0.310825, 0.384703, 0)
 modulate = Color(1, 0.901961, 0.352941, 1)
 render_priority = 12
 texture = ExtResource("3_s6mwh")
 
-[node name="EyeLPupil" type="Sprite3D" parent="."]
-transform = Transform3D(0.25, 0, 0, 0, 0.249999, 0, 0, 0, 0.249999, -0.34425, 0.369061, 0)
+[node name="EyeLPupil" type="Sprite3D" parent="EyeL"]
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1337, -0.0625683, 0)
 render_priority = 13
 texture = ExtResource("4_u8vub")
 
@@ -60,8 +72,8 @@ modulate = Color(1, 0.901961, 0.352941, 1)
 render_priority = 15
 texture = ExtResource("7_xs7ty")
 
-[node name="EyeRPupil" type="Sprite3D" parent="."]
-transform = Transform3D(0.25, 0, 0, 0, 0.249999, 0, 0, 0, 0.249999, 0.206515, 0.324715, 0)
+[node name="EyeRPupil" type="Sprite3D" parent="EyeR"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.180468, -0.0407642, 0)
 render_priority = 16
 texture = ExtResource("8_i2fsk")
 
@@ -70,6 +82,21 @@ transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0.428156, 0)
 render_priority = 10
 texture = ExtResource("9_fp5vi")
 
+[node name="EarL" type="Sprite3D" parent="Body"]
+transform = Transform3D(-1, 0, 0, 0, 0.999996, 0, 0, 0, 0.999996, -0.703868, 0.540624, 0)
+render_priority = 8
+texture = ExtResource("2_p6jv0")
+
+[node name="EarR" type="Sprite3D" parent="Body"]
+transform = Transform3D(1, 0, 0, 0, 0.999996, 0, 0, 0, 0.999996, 0.782432, 0.452428, 0)
+render_priority = 8
+texture = ExtResource("2_p6jv0")
+
 [node name="Decal" type="Sprite3D" parent="Body"]
 render_priority = 11
 texture = ExtResource("10_qeqij")
+
+[node name="Animation" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_nj6ty")
+}
