@@ -1,25 +1,13 @@
-[gd_scene load_steps=6 format=3 uid="uid://cnisgb7eskrlp"]
+[gd_scene load_steps=3 format=3 uid="uid://cnisgb7eskrlp"]
 
 [ext_resource type="PackedScene" uid="uid://dntbubkn7i4aa" path="res://player.tscn" id="1_4g4tu"]
-[ext_resource type="Texture2D" uid="uid://14u5m4ybcwtm" path="res://icon.svg" id="1_g1551"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gemom"]
-albedo_texture = ExtResource("1_g1551")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_l5y1h"]
 
 [sub_resource type="Environment" id="Environment_4csi7"]
 
 [node name="Game" type="Node3D"]
 
-[node name="CSGBox3D" type="CSGBox3D" parent="."]
-material_override = SubResource("StandardMaterial3D_gemom")
-use_collision = true
-size = Vector3(13.3954, 0.0585938, 11.3115)
-material = SubResource("StandardMaterial3D_l5y1h")
-
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.258819, 0.965926, 0, -0.965926, 0.258819, 0, 9, 3)
+transform = Transform3D(1, 0, 0, 0, 0.258819, 0.965926, 0, -0.965926, 0.258819, 0, 12, 5)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.263317, -4.21688e-08, 0.964709, -0.964709, -1.151e-08, 0.263317, 1.76963e-15, -1, -4.37114e-08, 0, 7.38173, 0)
@@ -27,28 +15,28 @@ layers = 0
 light_angular_distance = 90.0
 
 [node name="Player" parent="." instance=ExtResource("1_4g4tu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.656, 0.1, -3.703)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.25, 0.1, -4.2)
 DASH_SPEED = 20
 PLAYER_COLOR_BASE = Color(0.254902, 0.803922, 0.45098, 1)
 PLAYER_COLOR_DARK = Color(0.0588235, 0.647059, 0.411765, 1)
 PLAYER_COLOR_HIGHLIGHT = Color(0.0588235, 0.45098, 0.45098, 1)
 
 [node name="Player2" parent="." instance=ExtResource("1_4g4tu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.727, 0.1, 4.615)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.25, 0.1, 4.2)
 PLAYER_NUMBER = 2
 PLAYER_COLOR_BASE = Color(0.254902, 0.843137, 0.843137, 1)
 PLAYER_COLOR_DARK = Color(0.0784314, 0.627451, 0.803922, 1)
 PLAYER_COLOR_HIGHLIGHT = Color(0.0784314, 0.411765, 0.764706, 1)
 
 [node name="Player3" parent="." instance=ExtResource("1_4g4tu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.02056, 0.1, 4.646)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.25, 0.1, 4.2)
 PLAYER_NUMBER = 3
 PLAYER_COLOR_BASE = Color(0.627451, 0.254902, 0.843137, 1)
 PLAYER_COLOR_DARK = Color(0.392157, 0.176471, 0.705882, 1)
 PLAYER_COLOR_HIGHLIGHT = Color(0.235294, 0.117647, 0.54902, 1)
 
 [node name="Player4" parent="." instance=ExtResource("1_4g4tu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.07819, 0.1, -4.022)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.25, 0.1, -4.2)
 PLAYER_NUMBER = 4
 PLAYER_COLOR_BASE = Color(1, 0.54902, 0.54902, 1)
 PLAYER_COLOR_DARK = Color(0.901961, 0.313726, 0.470588, 1)
@@ -56,3 +44,104 @@ PLAYER_COLOR_HIGHLIGHT = Color(0.705882, 0.137255, 0.431373, 1)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_4csi7")
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="."]
+radius = 2.4
+height = 0.001
+sides = 6
+
+[node name="CSGCylinder3D15" type="CSGCylinder3D" parent="CSGCylinder3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.65, 0, -6.3)
+radius = 2.4
+height = 0.001
+sides = 6
+
+[node name="CSGCylinder3D14" type="CSGCylinder3D" parent="CSGCylinder3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.65, 0, -6.3)
+radius = 2.4
+height = 0.001
+sides = 6
+
+[node name="CSGCylinder3D11" type="CSGCylinder3D" parent="CSGCylinder3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.3, 0, -4.2)
+radius = 2.4
+height = 0.001
+sides = 6
+
+[node name="CSGCylinder3D8" type="CSGCylinder3D" parent="CSGCylinder3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.3, 0, 0)
+radius = 2.4
+height = 0.001
+sides = 6
+
+[node name="CSGCylinder3D10" type="CSGCylinder3D" parent="CSGCylinder3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.3, 0, 4.2)
+radius = 2.4
+height = 0.001
+sides = 6
+
+[node name="CSGCylinder3D12" type="CSGCylinder3D" parent="CSGCylinder3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.3, 0, -4.2)
+radius = 2.4
+height = 0.001
+sides = 6
+
+[node name="CSGCylinder3D13" type="CSGCylinder3D" parent="CSGCylinder3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.3, 0, 4.2)
+radius = 2.4
+height = 0.001
+sides = 6
+
+[node name="CSGCylinder3D9" type="CSGCylinder3D" parent="CSGCylinder3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.3, 0, 0)
+radius = 2.4
+height = 0.001
+sides = 6
+
+[node name="CSGCylinder3D3" type="CSGCylinder3D" parent="CSGCylinder3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.65, 0, 2.1)
+radius = 2.4
+height = 0.001
+sides = 6
+
+[node name="CSGCylinder3D16" type="CSGCylinder3D" parent="CSGCylinder3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.65, 0, 6.3)
+radius = 2.4
+height = 0.001
+sides = 6
+
+[node name="CSGCylinder3D17" type="CSGCylinder3D" parent="CSGCylinder3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.65, 0, 6.3)
+radius = 2.4
+height = 0.001
+sides = 6
+
+[node name="CSGCylinder3D7" type="CSGCylinder3D" parent="CSGCylinder3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.65, 0, -2.1)
+radius = 2.4
+height = 0.001
+sides = 6
+
+[node name="CSGCylinder3D4" type="CSGCylinder3D" parent="CSGCylinder3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.65, 0, 2.1)
+radius = 2.4
+height = 0.001
+sides = 6
+
+[node name="CSGCylinder3D5" type="CSGCylinder3D" parent="CSGCylinder3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.65, 0, -2.1)
+radius = 2.4
+height = 0.001
+sides = 6
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="CSGCylinder3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4.2)
+radius = 2.4
+height = 0.001
+sides = 6
+
+[node name="CSGCylinder3D6" type="CSGCylinder3D" parent="CSGCylinder3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4.2)
+radius = 2.4
+height = 0.001
+sides = 6

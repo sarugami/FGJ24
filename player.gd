@@ -3,6 +3,7 @@ extends CharacterBody3D
 @export var PLAYER_NUMBER = 1
 @export var SPEED = 5.0
 @export var FRICTION = 1.5
+@export var BOUNCE_SPEED = 10
 @export var DASH_LENGTH = 2.5
 @export var DASH_SPEED = 25
 @export var PLAYER_COLOR_BASE = Color("green")
@@ -11,6 +12,7 @@ extends CharacterBody3D
 
 @onready var dash_timer = $DashTimer
 @onready var bonk_cherge_timer = $BonkChargeTimer
+@onready var bonk_effect_timer = $BonkEffectTimer
 @onready var marker_3d = $AttackArea/Marker3D
 @onready var attackArea = $AttackArea
 @onready var attackAreaCollider = $AttackArea/Marker3D/Area3D/CollisionShape3D
@@ -33,6 +35,7 @@ func _ready():
 	(sprites.find_child("LegL") as Sprite3D).modulate = PLAYER_COLOR_DARK
 	(sprites.find_child("EarL") as Sprite3D).modulate = PLAYER_COLOR_DARK
 	(sprites.find_child("Decal") as Sprite3D).modulate = PLAYER_COLOR_HIGHLIGHT
+	(sprites.find_child("Mouth") as Sprite3D).modulate = Color("white")
 
 
 func _physics_process(_delta):
@@ -63,8 +66,8 @@ func _physics_process(_delta):
 	var collision_info = move_and_collide(velocity * _delta)
 	if collision_info:
 		var bounce_vector = velocity.bounce(collision_info.get_normal())
-		print_debug("Bounced at: " + str(bounce_vector))
-		velocity = Vector3(clamp(bounce_vector.x, -5, 5), 0, clamp(bounce_vector.z, -5, 5))
+		#print_debug("Bounced at: " + str(bounce_vector))
+		velocity = Vector3(clamp(bounce_vector.x, -BOUNCE_SPEED, BOUNCE_SPEED), 0, clamp(bounce_vector.z, -BOUNCE_SPEED, BOUNCE_SPEED))
 		#for i in collision_info.get_collision_count:
 			#if collision_info.get_collider(i).get
 
@@ -87,13 +90,33 @@ func dash():
 		dash_timer.start()
 
 func attack():
+	print_debug("start attack")
 	bonk_cherge_timer.start()
 
 func cancelAttack():
+	print_debug("cancel attack")
 	bonk_cherge_timer.stop()
 
 func _on_bonk_charge_timer_timeout():
+	print_debug("bonk")
 	attackAreaCollider.disabled = false
+	bonk_effect_timer.start()
 
 func _on_dash_timer_timeout():
 	can_dash = true
+
+
+func _on_player_collision_area_area_entered(area):
+	print_debug("Area collided: " + str(area.global_position))
+	print_debug("Current position: " + str(position))
+	velocity = (area.position - position) * BOUNCE_SPEED
+
+func _on_player_collision_area_body_entered(body):
+	if !dash_destination:
+		print_debug(str(PLAYER_NUMBER) + " entered collider velocity: " + str(body.velocity))
+		velocity = body.velocity
+
+
+func _on_bonk_effect_timer_timeout():
+	attackAreaCollider.disabled = true
+

@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://dntbubkn7i4aa"]
+[gd_scene load_steps=8 format=3 uid="uid://dntbubkn7i4aa"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_4qlm8"]
 [ext_resource type="PackedScene" uid="uid://o2fddfxi4xa1" path="res://sprites.tscn" id="2_47dxv"]
@@ -8,11 +8,16 @@
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_74j06"]
 height = 1.22353
 
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_2xn2e"]
+height = 1.70923
+
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_ityrd"]
 height = 0.298893
 
 [node name="Player" type="CharacterBody3D"]
 collision_mask = 3
+collision_priority = 2.0
+axis_lock_linear_y = true
 script = ExtResource("1_4qlm8")
 DASH_SPEED = 2
 
@@ -23,6 +28,14 @@ transform = Transform3D(1, 0, 0, 0, 0.258819, 0.965926, 0, -0.965926, 0.258819, 
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.584238, 0)
 shape = SubResource("CapsuleShape3D_74j06")
 
+[node name="PlayerCollisionArea" type="Area3D" parent="."]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+collision_layer = 4
+collision_mask = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerCollisionArea"]
+shape = SubResource("CapsuleShape3D_2xn2e")
+
 [node name="shadow" type="Sprite3D" parent="."]
 transform = Transform3D(0.15, 0, 0, 0, -6.55671e-09, -0.15, 0, 0.15, -6.55671e-09, 0, 0, 0)
 modulate = Color(0, 0, 0, 0.203922)
@@ -32,7 +45,12 @@ texture = ExtResource("2_p2rli")
 [node name="DashTimer" type="Timer" parent="."]
 one_shot = true
 
+[node name="BonkEffectTimer" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+
 [node name="BonkChargeTimer" type="Timer" parent="."]
+wait_time = 0.254
 one_shot = true
 
 [node name="AttackArea" type="Node3D" parent="."]
@@ -47,6 +65,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.47733, 0.729305, 0)
 
 [node name="Area3D" type="Area3D" parent="AttackArea/Marker3D"]
 collision_layer = 2
+collision_mask = 0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="AttackArea/Marker3D/Area3D"]
 shape = SubResource("CylinderShape3D_ityrd")
@@ -57,5 +76,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.715731, 0)
 radius = 0.491717
 height = 0.0173324
 
+[connection signal="area_entered" from="PlayerCollisionArea" to="." method="_on_player_collision_area_area_entered"]
+[connection signal="body_entered" from="PlayerCollisionArea" to="." method="_on_player_collision_area_body_entered"]
 [connection signal="timeout" from="DashTimer" to="." method="_on_dash_timer_timeout"]
+[connection signal="timeout" from="BonkEffectTimer" to="." method="_on_bonk_effect_timer_timeout"]
 [connection signal="timeout" from="BonkChargeTimer" to="." method="_on_bonk_charge_timer_timeout"]
