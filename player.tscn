@@ -1,10 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://dntbubkn7i4aa"]
+[gd_scene load_steps=5 format=3 uid="uid://dntbubkn7i4aa"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_4qlm8"]
 [ext_resource type="Texture2D" uid="uid://ceprvc04wyh7y" path="res://Sprites/circle.png" id="2_p2rli"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_74j06"]
 height = 1.22353
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_ityrd"]
+height = 0.298893
 
 [node name="Player" type="CharacterBody3D"]
 script = ExtResource("1_4qlm8")
@@ -14,9 +17,6 @@ DASH_SPEED = 10
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.675, 0)
 shape = SubResource("CapsuleShape3D_74j06")
-
-[node name="Marker3D" type="Marker3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
 transform = Transform3D(0.25, 0, 0, 0, 0.0647048, 0.241481, 0, -0.241481, 0.0647048, 0, 0.01, 0)
@@ -35,5 +35,19 @@ texture = ExtResource("2_p2rli")
 one_shot = true
 
 [node name="DashTime" type="Timer" parent="."]
+
+[node name="AttackArea" type="Node3D" parent="."]
+
+[node name="Marker3D" type="Marker3D" parent="AttackArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.47733, 0.729305, 0)
+
+[node name="Area3D" type="Area3D" parent="AttackArea/Marker3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="AttackArea/Marker3D/Area3D"]
+shape = SubResource("CylinderShape3D_ityrd")
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="AttackArea/Marker3D/Area3D"]
+radius = 0.0935296
+height = 0.467608
 
 [connection signal="timeout" from="DashTimer" to="." method="_on_timer_timeout"]

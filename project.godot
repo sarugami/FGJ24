@@ -238,3 +238,4 @@ aim_right_4={
 [rendering]
 
 renderer/rendering_method="gl_compatibility"
+lights_and_shadows/use_physical_light_units=true
