@@ -14,7 +14,6 @@ albedo_texture = ExtResource("1_g1551")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
 material_override = SubResource("StandardMaterial3D_gemom")
-use_collision = true
 size = Vector3(13.3954, 0.0585938, 11.3115)
 material = SubResource("StandardMaterial3D_l5y1h")
 
