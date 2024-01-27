@@ -9,7 +9,6 @@ extends CharacterBody3D
 @export var PLAYER_COLOR_DARK = Color("green")
 @export var PLAYER_COLOR_HIGHLIGHT = Color("green")
 
-@onready var sprite_3d = $Sprite3D
 @onready var dash_timer = $DashTimer
 @onready var bonk_cherge_timer = $BonkChargeTimer
 @onready var marker_3d = $AttackArea/Marker3D
@@ -56,7 +55,18 @@ func _physics_process(_delta):
 	if aim:
 		attackArea.rotation.y = Vector2(aim_direction.x, aim_direction.y * -1).angle()
 
-	move_and_slide()
+	if direction.x > 0:
+		sprites.scale.x = -1
+	elif direction.x < 0:
+		sprites.scale.x = 1
+
+	var collision_info = move_and_collide(velocity * _delta)
+	if collision_info:
+		var bounce_vector = velocity.bounce(collision_info.get_normal())
+		print_debug("Bounced at: " + str(bounce_vector))
+		velocity = Vector3(clamp(bounce_vector.x, -5, 5), 0, clamp(bounce_vector.z, -5, 5))
+		#for i in collision_info.get_collision_count:
+			#if collision_info.get_collider(i).get
 
 func _input(event):
 	if event.is_action_pressed("dash_" + str(PLAYER_NUMBER)):
@@ -84,7 +94,6 @@ func cancelAttack():
 
 func _on_bonk_charge_timer_timeout():
 	attackAreaCollider.disabled = false
-
 
 func _on_dash_timer_timeout():
 	can_dash = true

@@ -12,6 +12,7 @@ height = 1.22353
 height = 0.298893
 
 [node name="Player" type="CharacterBody3D"]
+collision_mask = 3
 script = ExtResource("1_4qlm8")
 DASH_SPEED = 2
 
@@ -45,6 +46,7 @@ texture = ExtResource("4_jkx8y")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.47733, 0.729305, 0)
 
 [node name="Area3D" type="Area3D" parent="AttackArea/Marker3D"]
+collision_layer = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="AttackArea/Marker3D/Area3D"]
 shape = SubResource("CylinderShape3D_ityrd")
