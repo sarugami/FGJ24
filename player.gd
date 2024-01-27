@@ -5,7 +5,9 @@ extends CharacterBody3D
 @export var FRICTION = 1.5
 @export var DASH_LENGTH = 2.5
 @export var DASH_SPEED = 25
-@export var PLAYER_COLOR = Color("green")
+@export var PLAYER_COLOR_BASE = Color("green")
+@export var PLAYER_COLOR_DARK = Color("green")
+@export var PLAYER_COLOR_HIGHLIGHT = Color("green")
 
 @onready var sprite_3d = $Sprite3D
 @onready var dash_timer = $DashTimer
@@ -14,6 +16,9 @@ extends CharacterBody3D
 @onready var attackArea = $AttackArea
 @onready var attackAreaCollider = $AttackArea/Marker3D/Area3D/CollisionShape3D
 @onready var csg_cylinder_3d = $AttackArea/Marker3D/Area3D/CSGCylinder3D
+@onready var sprites = $Sprites
+
+
 
 var direction
 var can_dash = true
@@ -21,7 +26,15 @@ var dash_destination
 var dash_starting_point
 
 func _ready():
-	sprite_3d.modulate = PLAYER_COLOR
+	#sprite_3d.modulate = PLAYER_COLOR
+	(sprites.find_child("Body") as Sprite3D).modulate = PLAYER_COLOR_BASE
+	(sprites.find_child("LegR") as Sprite3D).modulate = PLAYER_COLOR_BASE
+	(sprites.find_child("EarR") as Sprite3D).modulate = PLAYER_COLOR_BASE
+	(sprites.find_child("Nose") as Sprite3D).modulate = PLAYER_COLOR_BASE
+	(sprites.find_child("LegL") as Sprite3D).modulate = PLAYER_COLOR_DARK
+	(sprites.find_child("EarL") as Sprite3D).modulate = PLAYER_COLOR_DARK
+	(sprites.find_child("Decal") as Sprite3D).modulate = PLAYER_COLOR_HIGHLIGHT
+
 
 func _physics_process(_delta):
 	## input handling
