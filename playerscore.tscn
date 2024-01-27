@@ -54,9 +54,9 @@ grow_horizontal = 0
 scale = Vector2(0.65, 0.65)
 
 [node name="Playernumber" type="RichTextLabel" parent="PlayerProfile2"]
-offset_left = 230.0
+offset_left = 100.0
 offset_top = 22.0
-offset_right = 431.0
+offset_right = 301.0
 offset_bottom = 64.0
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 13
@@ -68,12 +68,13 @@ scroll_active = false
 [node name="PlayerProfileBG" type="Sprite2D" parent="PlayerProfile2"]
 position = Vector2(224, 66)
 texture = ExtResource("2_4di87")
+flip_h = true
 
 [node name="PlayerProfileScore" type="Sprite2D" parent="PlayerProfile2"]
-position = Vector2(229, 44)
+position = Vector2(80, 44)
 texture = ExtResource("3_apxpj")
 
-[node name="PlayerProfile3" type="Control" parent="."]
+[node name="PlayerProfile4" type="Control" parent="."]
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
@@ -88,10 +89,10 @@ grow_horizontal = 0
 grow_vertical = 0
 scale = Vector2(0.65, 0.65)
 
-[node name="Playernumber" type="RichTextLabel" parent="PlayerProfile3"]
-offset_left = 230.0
+[node name="Playernumber" type="RichTextLabel" parent="PlayerProfile4"]
+offset_left = 80.0
 offset_top = 22.0
-offset_right = 432.0
+offset_right = 282.0
 offset_bottom = 64.0
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 13
@@ -100,15 +101,16 @@ theme_override_font_sizes/normal_font_size = 30
 text = "Player 4"
 scroll_active = false
 
-[node name="PlayerProfileBG" type="Sprite2D" parent="PlayerProfile3"]
+[node name="PlayerProfileBG" type="Sprite2D" parent="PlayerProfile4"]
 position = Vector2(224, 66)
 texture = ExtResource("2_4di87")
+flip_h = true
 
-[node name="PlayerProfileScore" type="Sprite2D" parent="PlayerProfile3"]
-position = Vector2(229, 44)
+[node name="PlayerProfileScore" type="Sprite2D" parent="PlayerProfile4"]
+position = Vector2(80, 44)
 texture = ExtResource("3_apxpj")
 
-[node name="PlayerProfile4" type="Control" parent="."]
+[node name="PlayerProfile3" type="Control" parent="."]
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
@@ -120,7 +122,7 @@ offset_bottom = -98.0
 grow_vertical = 0
 scale = Vector2(0.65, 0.65)
 
-[node name="Playernumber" type="RichTextLabel" parent="PlayerProfile4"]
+[node name="Playernumber" type="RichTextLabel" parent="PlayerProfile3"]
 offset_left = 230.0
 offset_top = 22.0
 offset_right = 432.0
@@ -132,10 +134,10 @@ theme_override_font_sizes/normal_font_size = 30
 text = "Player 3"
 scroll_active = false
 
-[node name="PlayerProfileBG" type="Sprite2D" parent="PlayerProfile4"]
+[node name="PlayerProfileBG" type="Sprite2D" parent="PlayerProfile3"]
 position = Vector2(224, 66)
 texture = ExtResource("2_4di87")
 
-[node name="PlayerProfileScore" type="Sprite2D" parent="PlayerProfile4"]
+[node name="PlayerProfileScore" type="Sprite2D" parent="PlayerProfile3"]
 position = Vector2(229, 44)
 texture = ExtResource("3_apxpj")
