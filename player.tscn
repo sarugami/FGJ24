@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://dntbubkn7i4aa"]
+[gd_scene load_steps=7 format=3 uid="uid://dntbubkn7i4aa"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_4qlm8"]
 [ext_resource type="PackedScene" uid="uid://cujgqoyxca3pc" path="res://sprites.tscn" id="2_47dxv"]
 [ext_resource type="Texture2D" uid="uid://ceprvc04wyh7y" path="res://Sprites/circle.png" id="2_p2rli"]
+[ext_resource type="Texture2D" uid="uid://cabdqofm2h8ii" path="res://Sprites/Char/Target_circle.png" id="4_jkx8y"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_74j06"]
 height = 1.22353
@@ -35,6 +36,11 @@ one_shot = true
 one_shot = true
 
 [node name="AttackArea" type="Node3D" parent="."]
+
+[node name="Sprite3D" type="Sprite3D" parent="AttackArea"]
+transform = Transform3D(0.275, 0, 0, 0, -1.20206e-08, 0.275, 0, -0.275, -1.20206e-08, 0, 0, 0)
+render_priority = 1
+texture = ExtResource("4_jkx8y")
 
 [node name="Marker3D" type="Marker3D" parent="AttackArea"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.47733, 0.729305, 0)
