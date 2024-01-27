@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://dntbubkn7i4aa"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_4qlm8"]
-[ext_resource type="PackedScene" uid="uid://cujgqoyxca3pc" path="res://sprites.tscn" id="2_47dxv"]
+[ext_resource type="PackedScene" uid="uid://o2fddfxi4xa1" path="res://sprites.tscn" id="2_47dxv"]
 [ext_resource type="Texture2D" uid="uid://ceprvc04wyh7y" path="res://Sprites/circle.png" id="2_p2rli"]
 [ext_resource type="Texture2D" uid="uid://cabdqofm2h8ii" path="res://Sprites/Char/Target_circle.png" id="4_jkx8y"]
 
@@ -17,6 +17,7 @@ height = 0.298893
 [node name="Player" type="CharacterBody3D"]
 collision_mask = 3
 collision_priority = 2.0
+axis_lock_linear_y = true
 script = ExtResource("1_4qlm8")
 DASH_SPEED = 2
 
