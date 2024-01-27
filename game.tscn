@@ -1,12 +1,11 @@
-[gd_scene load_steps=17 format=3 uid="uid://cnisgb7eskrlp"]
+[gd_scene load_steps=18 format=3 uid="uid://cnisgb7eskrlp"]
 
 [ext_resource type="PackedScene" uid="uid://dntbubkn7i4aa" path="res://player.tscn" id="1_4g4tu"]
+[ext_resource type="Script" path="res://game.gd" id="1_ss7n6"]
 [ext_resource type="Texture2D" uid="uid://boq30yrrbsu5j" path="res://Sprites/Untitled-1.png" id="2_psycr"]
 [ext_resource type="Script" path="res://smokescroll_xy.gd" id="3_34qty"]
 [ext_resource type="Script" path="res://smokescroll_x.gd" id="4_2wss6"]
 [ext_resource type="Script" path="res://smokescroll_y.gd" id="5_cgiml"]
-[ext_resource type="Script" path="res://game.gd" id="1_ss7n6"]
-
 
 [sub_resource type="Environment" id="Environment_4csi7"]
 
