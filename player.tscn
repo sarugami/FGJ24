@@ -88,6 +88,7 @@ transform = Transform3D(0.33, 0, 0, 0, -1.44248e-08, -0.33, 0, 0.33, -1.44248e-0
 texture = ExtResource("7_bd2gn")
 
 [node name="AimFill" type="Sprite3D" parent="AttackArea/Marker3D/AimCircle"]
+transform = Transform3D(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
 modulate = Color(1, 1, 1, 0.588235)
 texture = ExtResource("6_h2sc8")
 
