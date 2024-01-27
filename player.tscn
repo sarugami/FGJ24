@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://dntbubkn7i4aa"]
+[gd_scene load_steps=6 format=3 uid="uid://dntbubkn7i4aa"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_4qlm8"]
+[ext_resource type="PackedScene" uid="uid://o2fddfxi4xa1" path="res://sprites.tscn" id="2_47dxv"]
 [ext_resource type="Texture2D" uid="uid://ceprvc04wyh7y" path="res://Sprites/circle.png" id="2_p2rli"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_74j06"]
@@ -11,19 +12,15 @@ height = 0.298893
 
 [node name="Player" type="CharacterBody3D"]
 script = ExtResource("1_4qlm8")
-DASH_LENGTH = 5.0
-DASH_SPEED = 10
+DASH_LENGTH = 4.0
+DASH_SPEED = 100
+
+[node name="Sprites" parent="." instance=ExtResource("2_47dxv")]
+transform = Transform3D(1, 0, 0, 0, 0.258819, 0.965926, 0, -0.965926, 0.258819, 0, 0, 0.124517)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.675, 0)
 shape = SubResource("CapsuleShape3D_74j06")
-
-[node name="Sprite3D" type="Sprite3D" parent="."]
-transform = Transform3D(0.25, 0, 0, 0, 0.0647048, 0.241481, 0, -0.241481, 0.0647048, 0, 0.01, 0)
-offset = Vector2(0, 256)
-modulate = Color(1, 0, 1, 1)
-render_priority = 2
-texture = ExtResource("2_p2rli")
 
 [node name="shadow" type="Sprite3D" parent="."]
 transform = Transform3D(0.2, 0, 0, 0, -6.55671e-09, -0.15, 0, 0.15, -6.55671e-09, 0, 0, 0)
