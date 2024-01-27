@@ -9,6 +9,7 @@ extends CharacterBody3D
 @export var PLAYER_COLOR_BASE = Color("green")
 @export var PLAYER_COLOR_DARK = Color("green")
 @export var PLAYER_COLOR_HIGHLIGHT = Color("green")
+@export var PLAYER_COLOR = Color("green")
 
 @onready var dash_timer = $DashTimer
 @onready var bonk_charge_timer = $BonkChargeTimer
@@ -17,8 +18,10 @@ extends CharacterBody3D
 @onready var attackArea = $AttackArea
 @onready var attackAreaCollider = $AttackArea/Marker3D/Area3D/CollisionShape3D
 @onready var sprites = $Sprites
-
-
+@onready var aim_fill = $AttackArea/Marker3D/AimCircle/AimFill
+@onready var aim_circle = $AttackArea/Marker3D/AimCircle
+@onready var aim_direction = $AttackArea/AimDirection
+@onready var aim_reticle = $AttackArea/Marker3D/AimReticle
 
 var direction
 var can_dash = true
@@ -26,6 +29,7 @@ var dash_destination
 var dash_starting_point
 var bonk_ready = false
 var movement_enabled = true
+var charging_bonk = false
 
 func _ready():
 	#sprite_3d.modulate = PLAYER_COLOR
@@ -36,7 +40,14 @@ func _ready():
 	(sprites.find_child("LegL") as Sprite3D).modulate = PLAYER_COLOR_DARK
 	(sprites.find_child("EarL") as Sprite3D).modulate = PLAYER_COLOR_DARK
 	(sprites.find_child("Decal") as Sprite3D).modulate = PLAYER_COLOR_HIGHLIGHT
-	(sprites.find_child("Mouth") as Sprite3D).modulate = Color("white")
+	aim_circle.modulate = PLAYER_COLOR
+	aim_reticle.modulate = PLAYER_COLOR
+	aim_direction.modulate = PLAYER_COLOR
+	aim_fill.modulate = PLAYER_COLOR
+
+func _process(delta):
+	if !bonk_charge_timer.paused:
+		aim_fill.scale = Vector3((bonk_charge_timer.wait_time - bonk_charge_timer.time_left) / bonk_charge_timer.wait_time, (bonk_charge_timer.wait_time - bonk_charge_timer.time_left) / bonk_charge_timer.wait_time, (bonk_charge_timer.wait_time - bonk_charge_timer.time_left) / bonk_charge_timer.wait_time)
 
 func _physics_process(_delta):
 	## input handling
@@ -82,7 +93,7 @@ func _input(event):
 	elif event.is_action_pressed("attack_" + str(PLAYER_NUMBER)):
 		attack()
 	elif event.is_action_released("attack_" + str(PLAYER_NUMBER)):
-		cancelAttack()
+		stopAttack()
 
 func dash():
 	if direction && can_dash:
@@ -95,15 +106,17 @@ func dash():
 		dash_timer.start()
 
 func attack():
-	movement_enabled = false
 	bonk_charge_timer.start()
+	aim_circle.visible = true
 
-func cancelAttack():
-	movement_enabled = true
+
+func stopAttack():
 	if !bonk_ready: 
 		bonk_charge_timer.stop()
+		aim_circle.visible = false
 	else:
 		attackAreaCollider.disabled = false
+		movement_enabled = false
 		bonk_effect_timer.start()
 
 func _on_bonk_charge_timer_timeout():
@@ -112,26 +125,24 @@ func _on_bonk_charge_timer_timeout():
 func _on_dash_timer_timeout():
 	can_dash = true
 
+func _on_bonk_effect_timer_timeout():
+	attackAreaCollider.disabled = true
+	aim_circle.visible = false
+	movement_enabled = true
+
+func _on_stun_timer_timeout():
+	movement_enabled = true
 
 func _on_player_collision_area_area_entered(area):
-	print_debug("Area collided: " + str(area.global_position))
-	print_debug("Current position: " + str(position))
+	#print_debug("Area collided: " + str(area.global_position))
+	#print_debug("Current position: " + str(position))
 
-	velocity = Vector3(clamp(area.global_position.x - position.x, -10, 10) * BOUNCE_SPEED, 0, clamp(area.global_position.z - position.z, -10, 10) * BOUNCE_SPEED)
-	print_debug("Bonk velocity: " + str(velocity))
+	velocity = Vector3(clamp(position.x - area.global_position.x, -1, 1) * BOUNCE_SPEED, 0, clamp(position.z - area.global_position.z, -1, 1) * BOUNCE_SPEED)
+	#print_debug("Bonk velocity: " + str(velocity))
 	movement_enabled = false
 
 func _on_player_collision_area_body_entered(body):
 	if !dash_destination:
 		#print_debug(str(PLAYER_NUMBER) + " entered collider velocity: " + str(body.velocity))
 		#velocity = body.velocity
-		velocity = Vector3(clamp(body.position.x - position.x, -1, 1) * BOUNCE_SPEED, 0, clamp(body.position.z - position.z, -1, 1) * BOUNCE_SPEED)
-
-
-func _on_bonk_effect_timer_timeout():
-	attackAreaCollider.disabled = true
-
-
-
-func _on_stun_timer_timeout():
-	movement_enabled = true
+		velocity = Vector3(clamp(position.x - body.position.x, -10, 10) * BOUNCE_SPEED, 0, clamp(position.z - body.position.z, -10, 10) * BOUNCE_SPEED)
