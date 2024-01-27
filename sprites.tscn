@@ -1,6 +1,7 @@
-[gd_scene load_steps=11 format=3 uid="uid://cujgqoyxca3pc"]
+[gd_scene load_steps=15 format=3 uid="uid://o2fddfxi4xa1"]
 
 [ext_resource type="Texture2D" uid="uid://dj5lbfo4yodoj" path="res://Sprites/Char/bonk_leg.png" id="1_7l88u"]
+[ext_resource type="Script" path="res://sprites.gd" id="1_i5gep"]
 [ext_resource type="Texture2D" uid="uid://c0rwsoiwfebrq" path="res://Sprites/Char/bonk_ear.png" id="2_p6jv0"]
 [ext_resource type="Texture2D" uid="uid://bjhoxyag80jsm" path="res://Sprites/Char/bonk_eyeL.png" id="3_s6mwh"]
 [ext_resource type="Texture2D" uid="uid://cgdresgip174o" path="res://Sprites/Char/bonk_pupilL.png" id="4_u8vub"]
@@ -11,7 +12,85 @@
 [ext_resource type="Texture2D" uid="uid://dioo7ikskmtps" path="res://Sprites/Char/bonk_body.png" id="9_fp5vi"]
 [ext_resource type="Texture2D" uid="uid://l30p4ub640xi" path="res://Sprites/Char/bonk_decal.png" id="10_qeqij"]
 
+[sub_resource type="Animation" id="Animation_0q2ms"]
+resource_name = "Idle"
+length = 1.6
+loop_mode = 1
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Body")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 0.43, 0, 0.4, 1, 0, 0.41, 0, 0.8, 1, 0, 0.435, 0, 1.2, 1, 0, 0.41, 0, 1.6, 1, 0, 0.43, 0)
+tracks/1/type = "rotation_3d"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Body")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1, 0.4, 1, 0, 0, -0.017, 1, 0.8, 1, 0, 0, 0, 1, 1.2, 1, 0, 0, 0.017, 1, 1.6, 1, 0, 0, 0, 1)
+tracks/2/type = "rotation_3d"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Body/EarL")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1, 0.4, 1, 0, 0, -0.087, 0.996, 0.8, 1, 0, 0, 0, 1, 1.2, 1, 0, 0, -0.087, 0.996, 1.6, 1, 0, 0, 0, 1)
+tracks/3/type = "rotation_3d"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Body/EarR")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = PackedFloat32Array(0, 1, 0, 0, 0, 0.999999, 0.4, 1, 0, 0, 0.087, 0.996, 0.8, 1, 0, 0, 0, 1, 1.2, 1, 0, 0, 0.087, 0.996, 1.6, 1, 0, 0, 0, 0.999999)
+tracks/4/type = "position_3d"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Nose")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = PackedFloat32Array(0, 1, -0.126, 0.283, 0, 0.2, 1, -0.126, 0.283, 0, 0.4, 1, -0.126, 0.27, 0, 0.6, 1, -0.126, 0.27, 0, 0.8, 1, -0.126, 0.283, 0, 1, 1, -0.126, 0.283, 0, 1.2, 1, -0.126, 0.27, 0, 1.4, 1, -0.126, 0.27, 0, 1.6, 1, -0.126, 0.283, 0)
+tracks/5/type = "position_3d"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("EyeR")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = PackedFloat32Array(0, 1, 0.161, 0.335, 0, 0.4, 1, 0.161, 0.35, 0, 0.6, 1, 0.161, 0.35, 0, 0.8, 1, 0.161, 0.335, 0, 1, 1, 0.161, 0.335, 0, 1.2, 1, 0.161, 0.345, 0, 1.4, 1, 0.161, 0.345, 0, 1.6, 1, 0.161, 0.335, 0)
+tracks/6/type = "position_3d"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("EyeL")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = PackedFloat32Array(0, 1, -0.311, 0.385, 0, 0.4, 1, -0.311, 0.4, 0, 0.6, 1, -0.311, 0.4, 0, 0.8, 1, -0.311, 0.385, 0, 1, 1, -0.311, 0.385, 0, 1.2, 1, -0.311, 0.3975, 0, 1.4, 1, -0.311, 0.3975, 0, 1.6, 1, -0.311, 0.385, 0)
+tracks/7/type = "position_3d"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("EyeL/EyeLPupil")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = PackedFloat32Array(0, 1, 0.095, 0, 0, 0.2, 1, 0.095, -0.1, 0, 0.4, 1, 0.096, -7.45058e-09, 0, 0.6, 1, 0.097, 0.05, 0, 0.8, 1, 0.097, 0, 0, 1, 1, 0.097, -0.1, 0, 1.2, 1, 0.0984375, 0, 0, 1.4, 1, 0.099, 0.05, 0, 1.6, 1, 0.1, 0, 0)
+tracks/8/type = "position_3d"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("EyeR/EyeRPupil")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = PackedFloat32Array(0, 1, 0.180468, -0.0407642, 0, 0.2, 1, 0.18, -0.141, 0, 0.4, 1, 0.18, -0.041, 0, 0.6, 1, 0.18, 0.011, 0, 0.8, 1, 0.180468, -0.0407642, 0, 1, 1, 0.18, -0.141, 0, 1.2, 1, 0.18, -0.041, 0, 1.4, 1, 0.18, 0.011, 0, 1.6, 1, 0.180468, -0.0407642, 0)
+
+[sub_resource type="Animation" id="Animation_nwpqo"]
+length = 0.001
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_nj6ty"]
+_data = {
+"Idle": SubResource("Animation_0q2ms"),
+"RESET": SubResource("Animation_nwpqo")
+}
+
 [node name="Sprites" type="Node3D"]
+script = ExtResource("1_i5gep")
 
 [node name="LegR" type="Sprite3D" parent="."]
 transform = Transform3D(0.25, 0, 0, 0, 0.249999, 0, 0, 0, 0.249999, 0.207797, 0.22568, 0)
@@ -23,53 +102,60 @@ transform = Transform3D(0.25, 0, 0, 0, 0.249999, 0, 0, 0, 0.249999, -0.21736, 0.
 render_priority = 9
 texture = ExtResource("1_7l88u")
 
-[node name="EarR" type="Sprite3D" parent="."]
-transform = Transform3D(0.25, 0, 0, 0, 0.249999, 0, 0, 0, 0.249999, 0.195608, 0.541263, 0)
-render_priority = 8
-texture = ExtResource("2_p6jv0")
-
-[node name="EarL" type="Sprite3D" parent="."]
-transform = Transform3D(-0.25, 0, 0, 0, 0.249999, 0, 0, 0, 0.249999, -0.175967, 0.563312, 0)
-render_priority = 8
-texture = ExtResource("2_p6jv0")
-
 [node name="EyeL" type="Sprite3D" parent="."]
-transform = Transform3D(-0.25, 0, 0, 0, 0.249999, 0, 0, 0, 0.249999, -0.310825, 0.384703, 0)
+transform = Transform3D(-0.25, 0, 0, 0, 0.249999, 0, 0, 0, 0.249999, -0.311, 0.385, 0)
 modulate = Color(1, 0.901961, 0.352941, 1)
 render_priority = 12
 texture = ExtResource("3_s6mwh")
 
-[node name="EyeLPupil" type="Sprite3D" parent="."]
-transform = Transform3D(0.25, 0, 0, 0, 0.249999, 0, 0, 0, 0.249999, -0.34425, 0.369061, 0)
+[node name="EyeLPupil" type="Sprite3D" parent="EyeL"]
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, 1, 0.095, 0, 0)
 render_priority = 13
 texture = ExtResource("4_u8vub")
 
-[node name="Mouth" type="Sprite3D" parent="."]
-transform = Transform3D(0.25, 0, 0, 0, 0.249999, 0, 0, 0, 0.249999, -0.1, 0.15375, 0)
-render_priority = 11
-texture = ExtResource("5_csb16")
-
 [node name="Nose" type="Sprite3D" parent="."]
-transform = Transform3D(0.25, 0, 0, 0, 0.249999, 0, 0, 0, 0.249999, -0.126041, 0.282514, 0)
+transform = Transform3D(0.25, 0, 0, 0, 0.249999, 0, 0, 0, 0.249999, -0.126, 0.283, 0)
 render_priority = 14
 texture = ExtResource("6_doi40")
 
 [node name="EyeR" type="Sprite3D" parent="."]
-transform = Transform3D(0.25, 0, 0, 0, 0.249999, 0, 0, 0, 0.249999, 0.161398, 0.334906, 0)
+transform = Transform3D(0.25, 0, 0, 0, 0.249999, 0, 0, 0, 0.249999, 0.161, 0.335, 0)
 modulate = Color(1, 0.901961, 0.352941, 1)
 render_priority = 15
 texture = ExtResource("7_xs7ty")
 
-[node name="EyeRPupil" type="Sprite3D" parent="."]
-transform = Transform3D(0.25, 0, 0, 0, 0.249999, 0, 0, 0, 0.249999, 0.206515, 0.324715, 0)
+[node name="EyeRPupil" type="Sprite3D" parent="EyeR"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.180468, -0.0407642, 0)
 render_priority = 16
 texture = ExtResource("8_i2fsk")
 
 [node name="Body" type="Sprite3D" parent="."]
-transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0.428156, 0)
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0.43, 0)
 render_priority = 10
 texture = ExtResource("9_fp5vi")
+
+[node name="EarL" type="Sprite3D" parent="Body"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.703868, 0.540624, 0)
+flip_h = true
+render_priority = 8
+texture = ExtResource("2_p6jv0")
+
+[node name="EarR" type="Sprite3D" parent="Body"]
+transform = Transform3D(1, 0, 0, 0, 0.999996, 0, 0, 0, 0.999996, 0.782432, 0.452428, 0)
+render_priority = 8
+texture = ExtResource("2_p6jv0")
 
 [node name="Decal" type="Sprite3D" parent="Body"]
 render_priority = 11
 texture = ExtResource("10_qeqij")
+
+[node name="Mouth" type="Sprite3D" parent="Body"]
+transform = Transform3D(0.998888, -0.047164, 0, 0.047164, 0.998884, 0, 0, 0, 0.999996, -0.348002, -1.08576, 0)
+render_priority = 11
+texture = ExtResource("5_csb16")
+
+[node name="Animation" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
+libraries = {
+"": SubResource("AnimationLibrary_nj6ty")
+}
