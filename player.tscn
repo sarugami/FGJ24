@@ -27,7 +27,6 @@ collision_mask = 3
 collision_priority = 2.0
 axis_lock_linear_y = true
 script = ExtResource("1_4qlm8")
-BOUNCE_SPEED = 100
 DASH_SPEED = 2
 
 [node name="Sprites" parent="." instance=ExtResource("2_47dxv")]
@@ -59,7 +58,6 @@ wait_time = 0.1
 one_shot = true
 
 [node name="BonkChargeTimer" type="Timer" parent="."]
-wait_time = 0.254
 one_shot = true
 
 [node name="StunTimer" type="Timer" parent="."]
@@ -67,7 +65,7 @@ one_shot = true
 
 [node name="AttackArea" type="Node3D" parent="."]
 
-[node name="Sprite3D" type="Sprite3D" parent="AttackArea"]
+[node name="AimDirection" type="Sprite3D" parent="AttackArea"]
 transform = Transform3D(0.275, 0, 0, 0, -1.20206e-08, 0.275, 0, -0.275, -1.20206e-08, 0, 0, 0)
 render_priority = 1
 texture = ExtResource("4_jkx8y")
@@ -93,7 +91,7 @@ visible = false
 texture = ExtResource("7_bd2gn")
 
 [node name="AimFill" type="Sprite3D" parent="AttackArea/Marker3D/AimCircle"]
-transform = Transform3D(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 modulate = Color(1, 1, 1, 0.588235)
 texture = ExtResource("6_h2sc8")
 

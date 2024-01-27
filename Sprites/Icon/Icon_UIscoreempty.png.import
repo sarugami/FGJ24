@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bxyimot2omaxd"
-path="res://.godot/imported/Tile_hexagon.png-b6a569d96944b4460b8ae65c5e1a32b9.ctex"
+uid="uid://cgkv0nakj8wie"
+path="res://.godot/imported/Icon_UIscoreempty.png-1e18ec7353f4609c0ce47f7457f56e8d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Tiles/Tile_hexagon.png"
-dest_files=["res://.godot/imported/Tile_hexagon.png-b6a569d96944b4460b8ae65c5e1a32b9.ctex"]
+source_file="res://Sprites/Icon/Icon_UIscoreempty.png"
+dest_files=["res://.godot/imported/Icon_UIscoreempty.png-1e18ec7353f4609c0ce47f7457f56e8d.ctex"]
 
 [params]
 
