@@ -32,14 +32,23 @@ PLAYER_COLOR_HIGHLIGHT = Color(0.0588235, 0.45098, 0.45098, 1)
 [node name="Player2" parent="." instance=ExtResource("1_4g4tu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.727, 0.1, 4.615)
 PLAYER_NUMBER = 2
+PLAYER_COLOR_BASE = Color(0.254902, 0.843137, 0.843137, 1)
+PLAYER_COLOR_DARK = Color(0.0784314, 0.627451, 0.803922, 1)
+PLAYER_COLOR_HIGHLIGHT = Color(0.0784314, 0.411765, 0.764706, 1)
 
 [node name="Player3" parent="." instance=ExtResource("1_4g4tu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.02056, 0.1, 4.646)
 PLAYER_NUMBER = 3
+PLAYER_COLOR_BASE = Color(0.627451, 0.254902, 0.843137, 1)
+PLAYER_COLOR_DARK = Color(0.392157, 0.176471, 0.705882, 1)
+PLAYER_COLOR_HIGHLIGHT = Color(0.235294, 0.117647, 0.54902, 1)
 
 [node name="Player4" parent="." instance=ExtResource("1_4g4tu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.07819, 0.1, -4.022)
 PLAYER_NUMBER = 4
+PLAYER_COLOR_BASE = Color(1, 0.54902, 0.54902, 1)
+PLAYER_COLOR_DARK = Color(0.901961, 0.313726, 0.470588, 1)
+PLAYER_COLOR_HIGHLIGHT = Color(0.705882, 0.137255, 0.431373, 1)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_4csi7")
