@@ -16,6 +16,7 @@ height = 1.70923
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_ityrd"]
 height = 0.298893
+radius = 0.894389
 
 [node name="Player" type="CharacterBody3D"]
 collision_mask = 3
