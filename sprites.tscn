@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://o2fddfxi4xa1"]
+[gd_scene load_steps=17 format=3 uid="uid://o2fddfxi4xa1"]
 
 [ext_resource type="Texture2D" uid="uid://dj5lbfo4yodoj" path="res://Sprites/Char/bonk_leg.png" id="1_7l88u"]
 [ext_resource type="Script" path="res://sprites.gd" id="1_i5gep"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://crsr2vf1juxbl" path="res://Sprites/Char/bonk_pupilR.png" id="8_i2fsk"]
 [ext_resource type="Texture2D" uid="uid://dioo7ikskmtps" path="res://Sprites/Char/bonk_body.png" id="9_fp5vi"]
 [ext_resource type="Texture2D" uid="uid://l30p4ub640xi" path="res://Sprites/Char/bonk_decal.png" id="10_qeqij"]
+[ext_resource type="Texture2D" uid="uid://c7j5pb53rup5k" path="res://Sprites/Char/bonk_hammer1.png" id="12_kgv6d"]
 
 [sub_resource type="Animation" id="Animation_0q2ms"]
 resource_name = "Idle"
@@ -323,6 +324,11 @@ texture = ExtResource("2_p6jv0")
 [node name="Decal" type="Sprite3D" parent="Spriteholder/Body"]
 render_priority = 11
 texture = ExtResource("10_qeqij")
+
+[node name="Hammer" type="Sprite3D" parent="Spriteholder"]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, -0.497074, 0.257145, 0.0570747)
+render_priority = 20
+texture = ExtResource("12_kgv6d")
 
 [node name="Animation" type="AnimationPlayer" parent="."]
 unique_name_in_owner = true
