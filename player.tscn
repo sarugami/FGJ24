@@ -17,6 +17,7 @@ height = 0.298893
 [node name="Player" type="CharacterBody3D"]
 collision_mask = 3
 collision_priority = 2.0
+axis_lock_linear_y = true
 script = ExtResource("1_4qlm8")
 DASH_SPEED = 2
 
