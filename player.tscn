@@ -1,9 +1,12 @@
-[gd_scene load_steps=8 format=3 uid="uid://dntbubkn7i4aa"]
+[gd_scene load_steps=11 format=3 uid="uid://dntbubkn7i4aa"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_4qlm8"]
 [ext_resource type="PackedScene" uid="uid://o2fddfxi4xa1" path="res://sprites.tscn" id="2_47dxv"]
 [ext_resource type="Texture2D" uid="uid://ceprvc04wyh7y" path="res://Sprites/circle.png" id="2_p2rli"]
 [ext_resource type="Texture2D" uid="uid://cabdqofm2h8ii" path="res://Sprites/Char/Target_circle.png" id="4_jkx8y"]
+[ext_resource type="Texture2D" uid="uid://lnnka2s7qr7j" path="res://Sprites/Char/target.png" id="5_6i58p"]
+[ext_resource type="Texture2D" uid="uid://2hhlw5ycx5u1" path="res://Sprites/Char/target_fill.png" id="6_h2sc8"]
+[ext_resource type="Texture2D" uid="uid://cju2wbsu4o6sw" path="res://Sprites/Char/target_edge.png" id="7_bd2gn"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_74j06"]
 height = 1.22353
@@ -13,6 +16,7 @@ height = 1.70923
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_ityrd"]
 height = 0.298893
+radius = 0.894389
 
 [node name="Player" type="CharacterBody3D"]
 collision_mask = 3
@@ -64,7 +68,7 @@ render_priority = 1
 texture = ExtResource("4_jkx8y")
 
 [node name="Marker3D" type="Marker3D" parent="AttackArea"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.47733, 0.729305, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 0)
 
 [node name="Area3D" type="Area3D" parent="AttackArea/Marker3D"]
 collision_layer = 2
@@ -74,10 +78,18 @@ collision_mask = 0
 shape = SubResource("CylinderShape3D_ityrd")
 disabled = true
 
-[node name="CSGCylinder3D" type="CSGCylinder3D" parent="AttackArea/Marker3D/Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.715731, 0)
-radius = 0.491717
-height = 0.0173324
+[node name="AimReticle" type="Sprite3D" parent="AttackArea/Marker3D"]
+transform = Transform3D(0.33, 0, 0, 0, -1.44248e-08, -0.33, 0, 0.33, -1.44248e-08, 0, 0, 0)
+texture = ExtResource("5_6i58p")
+
+[node name="AimCircle" type="Sprite3D" parent="AttackArea/Marker3D"]
+transform = Transform3D(0.33, 0, 0, 0, -1.44248e-08, -0.33, 0, 0.33, -1.44248e-08, 0, 0, 0)
+texture = ExtResource("7_bd2gn")
+
+[node name="AimFill" type="Sprite3D" parent="AttackArea/Marker3D/AimCircle"]
+transform = Transform3D(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+modulate = Color(1, 1, 1, 0.588235)
+texture = ExtResource("6_h2sc8")
 
 [connection signal="area_entered" from="PlayerCollisionArea" to="." method="_on_player_collision_area_area_entered"]
 [connection signal="body_entered" from="PlayerCollisionArea" to="." method="_on_player_collision_area_body_entered"]
