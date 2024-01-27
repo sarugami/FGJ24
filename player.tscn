@@ -47,7 +47,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.47733, 0.729305, 0)
 shape = SubResource("CylinderShape3D_ityrd")
 
 [node name="CSGCylinder3D" type="CSGCylinder3D" parent="AttackArea/Marker3D/Area3D"]
-radius = 0.0935296
-height = 0.467608
+radius = 0.491717
+height = 0.0173324
 
 [connection signal="timeout" from="DashTimer" to="." method="_on_timer_timeout"]

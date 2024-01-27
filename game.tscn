@@ -1,10 +1,12 @@
-[gd_scene load_steps=4 format=3 uid="uid://cnisgb7eskrlp"]
+[gd_scene load_steps=5 format=3 uid="uid://cnisgb7eskrlp"]
 
 [ext_resource type="PackedScene" uid="uid://dntbubkn7i4aa" path="res://player.tscn" id="1_4g4tu"]
 [ext_resource type="Texture2D" uid="uid://14u5m4ybcwtm" path="res://icon.svg" id="1_g1551"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gemom"]
 albedo_texture = ExtResource("1_g1551")
+
+[sub_resource type="Environment" id="Environment_4csi7"]
 
 [node name="Game" type="Node3D"]
 
@@ -17,7 +19,8 @@ size = Vector3(13.3954, 0.0585938, 11.3115)
 transform = Transform3D(1, 0, 0, 0, 0.258819, 0.965926, 0, -0.965926, 0.258819, 0, 9, 3)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-4.37114e-08, 1, 4.37114e-08, 0, -4.37114e-08, 1, 1, 4.37114e-08, 1.91069e-15, 0, 7.89253, 0)
+transform = Transform3D(0.263317, -4.21688e-08, 0.964709, -0.964709, -1.151e-08, 0.263317, 1.76963e-15, -1, -4.37114e-08, 0, 7.38173, 0)
+layers = 0
 
 [node name="Player" parent="." instance=ExtResource("1_4g4tu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.656, 0.1, -3.703)
@@ -37,3 +40,6 @@ PLAYER_COLOR = Color(1, 0.0313726, 0, 1)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.07819, 0.1, -4.022)
 PLAYER_NUMBER = 4
 PLAYER_COLOR = Color(0, 0, 1, 1)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_4csi7")

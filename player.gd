@@ -9,6 +9,8 @@ extends CharacterBody3D
 @onready var sprite_3d = $Sprite3D
 @onready var dash_timer = $DashTimer
 @onready var marker_3d = $AttackArea/Marker3D
+@onready var attackArea = $AttackArea
+@onready var csg_cylinder_3d = $AttackArea/Marker3D/Area3D/CSGCylinder3D
 
 var direction
 var can_dash = true
@@ -38,7 +40,7 @@ func _physics_process(_delta):
 		velocity.z = move_toward(velocity.z, 0, SPEED)
 		
 	if aim:
-		marker_3d.rotation.y = aim_direction.y
+		attackArea.rotation.y = move_toward(attackArea.rotation.y, Vector2(aim_direction.x, aim_direction.y * -1).angle(), 0.2)
 
 	move_and_slide()
 
