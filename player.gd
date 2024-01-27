@@ -10,6 +10,7 @@ extends CharacterBody3D
 @export var PLAYER_COLOR_DARK = Color("green")
 @export var PLAYER_COLOR_HIGHLIGHT = Color("green")
 @export var PLAYER_COLOR = Color("green")
+@export var MAX_HEALTH = 100.0
 
 @onready var dash_timer = $DashTimer
 @onready var bonk_charge_timer = $BonkChargeTimer
@@ -22,6 +23,8 @@ extends CharacterBody3D
 @onready var aim_circle = $AttackArea/Marker3D/AimCircle
 @onready var aim_direction = $AttackArea/AimDirection
 @onready var aim_reticle = $AttackArea/Marker3D/AimReticle
+@onready var health = $PlayerUi/Health
+
 
 var direction
 var can_dash = true
@@ -30,6 +33,7 @@ var dash_starting_point
 var bonk_ready = false
 var movement_enabled = true
 var charging_bonk = false
+var currentHealth = MAX_HEALTH
 
 func _ready():
 	#sprite_3d.modulate = PLAYER_COLOR
@@ -48,6 +52,11 @@ func _ready():
 func _process(delta):
 	if !bonk_charge_timer.paused:
 		aim_fill.scale = Vector3((bonk_charge_timer.wait_time - bonk_charge_timer.time_left) / bonk_charge_timer.wait_time, (bonk_charge_timer.wait_time - bonk_charge_timer.time_left) / bonk_charge_timer.wait_time, (bonk_charge_timer.wait_time - bonk_charge_timer.time_left) / bonk_charge_timer.wait_time)
+
+	health.value = int((currentHealth / MAX_HEALTH) * 100)
+
+	if currentHealth <= 0:
+		visible = false
 
 func _physics_process(_delta):
 	## input handling
@@ -81,9 +90,14 @@ func _physics_process(_delta):
 
 	var collision_info = move_and_collide(velocity * _delta)
 	if collision_info:
-		var bounce_vector = velocity.bounce(collision_info.get_normal())
+		var angleVector = Vector2(collision_info.get_collider(0).position.x, collision_info.get_collider(0).position.z).direction_to(Vector2(position.x, position.z))
+		velocity = Vector3(angleVector.x, 0, angleVector.y)
+		dash_destination = null
+		#movement_enabled = false
+		#bonk_effect_timer.start()
+		#var bounce_vector = velocity.bounce(collision_info.get_normal())
 		#print_debug("Bounced at: " + str(bounce_vector))
-		velocity = Vector3(clamp(bounce_vector.x, -BOUNCE_SPEED, BOUNCE_SPEED), 0, clamp(bounce_vector.z, -BOUNCE_SPEED, BOUNCE_SPEED))
+		#velocity = Vector3(clamp(bounce_vector.x, -BOUNCE_SPEED, BOUNCE_SPEED), 0, clamp(bounce_vector.z, -BOUNCE_SPEED, BOUNCE_SPEED))
 		#for i in collision_info.get_collision_count:
 			#if collision_info.get_collider(i).get
 
@@ -108,7 +122,7 @@ func dash():
 func attack():
 	bonk_charge_timer.start()
 	aim_circle.visible = true
-
+	bonk_ready = false
 
 func stopAttack():
 	if !bonk_ready: 
@@ -136,13 +150,16 @@ func _on_stun_timer_timeout():
 func _on_player_collision_area_area_entered(area):
 	#print_debug("Area collided: " + str(area.global_position))
 	#print_debug("Current position: " + str(position))
-
-	velocity = Vector3(clamp(position.x - area.global_position.x, -1, 1) * BOUNCE_SPEED, 0, clamp(position.z - area.global_position.z, -1, 1) * BOUNCE_SPEED)
+	var angleVector = Vector2(area.global_position.x, area.global_position.z).direction_to(Vector2(position.x, position.z))
+	velocity = Vector3(angleVector.x * BOUNCE_SPEED, 0, angleVector.y * BOUNCE_SPEED)
 	#print_debug("Bonk velocity: " + str(velocity))
 	movement_enabled = false
+	currentHealth -= 10
 
 func _on_player_collision_area_body_entered(body):
 	if !dash_destination:
-		#print_debug(str(PLAYER_NUMBER) + " entered collider velocity: " + str(body.velocity))
+		print_debug(str(PLAYER_NUMBER) + " entered collider velocity: " + str(body.velocity))
 		#velocity = body.velocity
-		velocity = Vector3(clamp(position.x - body.position.x, -10, 10) * BOUNCE_SPEED, 0, clamp(position.z - body.position.z, -10, 10) * BOUNCE_SPEED)
+		if body.velocity.x > -1 && body.velocity.x < 1 && body.velocity.z > -1 && body.velocity.z < 1:
+			var angleVector = Vector2(body.position.x, body.position.z).direction_to(Vector2(position.x, position.z))
+			velocity = Vector3(angleVector.x * BOUNCE_SPEED, 0, angleVector.y * BOUNCE_SPEED)

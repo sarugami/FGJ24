@@ -5,6 +5,8 @@
 [ext_resource type="Script" path="res://smokescroll_xy.gd" id="3_34qty"]
 [ext_resource type="Script" path="res://smokescroll_x.gd" id="4_2wss6"]
 [ext_resource type="Script" path="res://smokescroll_y.gd" id="5_cgiml"]
+[ext_resource type="Script" path="res://game.gd" id="1_ss7n6"]
+
 
 [sub_resource type="Environment" id="Environment_4csi7"]
 
@@ -47,6 +49,7 @@ albedo_texture = SubResource("NoiseTexture2D_t0c8l")
 uv1_scale = Vector3(3.91, 3.91, 3.91)
 
 [node name="Game" type="Node3D"]
+script = ExtResource("1_ss7n6")
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.258819, 0.965926, 0, -0.965926, 0.258819, 0, 12, 5)
