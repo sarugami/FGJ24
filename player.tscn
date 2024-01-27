@@ -23,7 +23,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.675, 0)
 shape = SubResource("CapsuleShape3D_74j06")
 
 [node name="shadow" type="Sprite3D" parent="."]
-transform = Transform3D(0.2, 0, 0, 0, -6.55671e-09, -0.15, 0, 0.15, -6.55671e-09, 0, 0, 0)
+transform = Transform3D(0.166, 0, 0, 0, -5.46392e-09, -0.125, 0, 0.125, -5.46392e-09, 0, 0, 0)
 modulate = Color(0, 0, 0, 0.203922)
 alpha_cut = 2
 texture = ExtResource("2_p2rli")
