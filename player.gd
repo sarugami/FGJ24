@@ -100,6 +100,18 @@ func _physics_process(_delta):
 		#velocity = Vector3(clamp(bounce_vector.x, -BOUNCE_SPEED, BOUNCE_SPEED), 0, clamp(bounce_vector.z, -BOUNCE_SPEED, BOUNCE_SPEED))
 		#for i in collision_info.get_collision_count:
 			#if collision_info.get_collider(i).get
+	
+	var space_state = get_world_3d().direct_space_state
+	var origin = position
+	var end = origin + Vector3(0, -5, 0)
+	var query = PhysicsRayQueryParameters3D.create(origin, end)
+	query.collide_with_areas = true
+
+	var result = space_state.intersect_ray(query)
+	if PLAYER_NUMBER == 1:
+		print_debug("Ray colliding with: " + str(result.get("collider")))
+	if result.is_empty():
+		currentHealth -= 1
 
 func _input(event):
 	if event.is_action_pressed("dash_" + str(PLAYER_NUMBER)):
