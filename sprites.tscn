@@ -535,7 +535,7 @@ render_priority = 12
 texture = ExtResource("3_s6mwh")
 
 [node name="EyeLPupil" type="Sprite3D" parent="Spriteholder/EyeL"]
-transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, 1, 0.097, 0, 0)
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, 1, 0.095, 0, 0)
 render_priority = 13
 texture = ExtResource("4_u8vub")
 
