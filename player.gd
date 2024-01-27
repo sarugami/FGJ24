@@ -57,6 +57,7 @@ func _process(delta):
 
 	if currentHealth <= 0:
 		visible = false
+		set_process_mode(PROCESS_MODE_DISABLED) 
 
 func _physics_process(_delta):
 	## input handling
@@ -108,8 +109,7 @@ func _physics_process(_delta):
 	query.collide_with_areas = true
 
 	var result = space_state.intersect_ray(query)
-	if PLAYER_NUMBER == 1:
-		print_debug("Ray colliding with: " + str(result.get("collider")))
+
 	if result.is_empty():
 		currentHealth -= 1
 
