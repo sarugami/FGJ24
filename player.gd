@@ -144,6 +144,7 @@ func stopAttack():
 		attackAreaCollider.disabled = false
 		movement_enabled = false
 		bonk_effect_timer.start()
+		(sprites.find_child("Animation") as AnimationPlayer).play("Attack")
 
 func _on_bonk_charge_timer_timeout():
 	bonk_ready = true
