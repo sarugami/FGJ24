@@ -12,8 +12,7 @@ height = 0.298893
 
 [node name="Player" type="CharacterBody3D"]
 script = ExtResource("1_4qlm8")
-DASH_LENGTH = 4.0
-DASH_SPEED = 100
+DASH_SPEED = 2
 
 [node name="Sprites" parent="." instance=ExtResource("2_47dxv")]
 transform = Transform3D(1, 0, 0, 0, 0.258819, 0.965926, 0, -0.965926, 0.258819, 0, 0, 0.193075)
