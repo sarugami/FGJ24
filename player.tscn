@@ -83,16 +83,19 @@ disabled = true
 
 [node name="AimReticle" type="Sprite3D" parent="AttackArea/Marker3D"]
 transform = Transform3D(0.25, 0, 0, 0, -1.09278e-08, -0.25, 0, 0.25, -1.09278e-08, 0, 0, 0)
+render_priority = 1
 texture = ExtResource("5_6i58p")
 
 [node name="AimCircle" type="Sprite3D" parent="AttackArea/Marker3D"]
 transform = Transform3D(0.33, 0, 0, 0, -1.44248e-08, -0.33, 0, 0.33, -1.44248e-08, 0, 0, 0)
 visible = false
+render_priority = 1
 texture = ExtResource("7_bd2gn")
 
 [node name="AimFill" type="Sprite3D" parent="AttackArea/Marker3D/AimCircle"]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 modulate = Color(1, 1, 1, 0.588235)
+render_priority = 1
 texture = ExtResource("6_h2sc8")
 
 [node name="PlayerUi" type="SubViewport" parent="."]
