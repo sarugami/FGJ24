@@ -11,12 +11,11 @@ extends CharacterBody3D
 @export var PLAYER_COLOR_HIGHLIGHT = Color("green")
 
 @onready var dash_timer = $DashTimer
-@onready var bonk_cherge_timer = $BonkChargeTimer
+@onready var bonk_charge_timer = $BonkChargeTimer
 @onready var bonk_effect_timer = $BonkEffectTimer
 @onready var marker_3d = $AttackArea/Marker3D
 @onready var attackArea = $AttackArea
 @onready var attackAreaCollider = $AttackArea/Marker3D/Area3D/CollisionShape3D
-@onready var csg_cylinder_3d = $AttackArea/Marker3D/Area3D/CSGCylinder3D
 @onready var sprites = $Sprites
 
 
@@ -97,12 +96,12 @@ func dash():
 
 func attack():
 	movement_enabled = false
-	bonk_cherge_timer.start()
+	bonk_charge_timer.start()
 
 func cancelAttack():
 	movement_enabled = true
 	if !bonk_ready: 
-		bonk_cherge_timer.stop()
+		bonk_charge_timer.stop()
 	else:
 		attackAreaCollider.disabled = false
 		bonk_effect_timer.start()
@@ -125,7 +124,8 @@ func _on_player_collision_area_area_entered(area):
 func _on_player_collision_area_body_entered(body):
 	if !dash_destination:
 		#print_debug(str(PLAYER_NUMBER) + " entered collider velocity: " + str(body.velocity))
-		velocity = body.velocity
+		#velocity = body.velocity
+		velocity = Vector3(clamp(body.position.x - position.x, -1, 1) * BOUNCE_SPEED, 0, clamp(body.position.z - position.z, -1, 1) * BOUNCE_SPEED)
 
 
 func _on_bonk_effect_timer_timeout():
