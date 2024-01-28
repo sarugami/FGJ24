@@ -220,13 +220,12 @@ libraries = {
 }
 
 [node name="boss_body" type="Sprite3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.076806, 0)
 modulate = Color(0.745098, 0.843137, 0.176471, 1)
 render_priority = 2
 texture = ExtResource("2_66w27")
 
 [node name="boss_eyes" type="Sprite3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.320941, 0.571366, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.320747, 0.476545, 0)
 render_priority = 4
 texture = ExtResource("3_s78qx")
 
@@ -243,41 +242,42 @@ render_priority = 3
 texture = ExtResource("5_mcmlm")
 
 [node name="boss_mouth" type="Sprite3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.884791, 0, 0, 0, 1, -0.309965, -0.417978, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.309848, -0.464266, 0)
 render_priority = 3
 texture = ExtResource("6_jqhbt")
 
 [node name="boss_earL" type="Sprite3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5361, 0.038403, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.53645, 0, 0)
 modulate = Color(0.745098, 0.843137, 0.176471, 1)
 render_priority = 1
 texture = ExtResource("7_lrynl")
 
 [node name="boss_earR" type="Sprite3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.42503, -0.0706698, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.42515, -0.109314, 0)
 modulate = Color(0.745098, 0.843137, 0.176471, 1)
 render_priority = 2
 texture = ExtResource("8_8wjho")
 
 [node name="boss_crown" type="Sprite3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.40029, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.36814, 0)
 modulate = Color(1, 0.666667, 0.196078, 1)
 render_priority = 1
 texture = ExtResource("9_6bjs1")
 
 [node name="boss_armL" type="Sprite3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1.0384, 0, 0, 0, 1, -1.15024, -0.66257, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.15024, -0.66257, 0)
 modulate = Color(0.745098, 0.843137, 0.176471, 1)
 render_priority = 1
 texture = ExtResource("10_03wi1")
 
 [node name="boss_fistL" type="Sprite3D" parent="boss_armL"]
 transform = Transform3D(0.54313, 0.839648, 0, -0.839648, 0.54313, 0, 0, 0, 1, -0.841176, -0.229196, 0)
+modulate = Color(0.745098, 0.843137, 0.176471, 1)
 render_priority = 4
 texture = ExtResource("11_drb6c")
 
 [node name="boss_armR" type="Sprite3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1.0192, 0, 0, 0, 1, 1.2613, -0.629619, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2613, -0.629619, 0)
 modulate = Color(0.745098, 0.843137, 0.176471, 1)
 render_priority = 2
 texture = ExtResource("12_nie6d")
@@ -285,6 +285,7 @@ texture = ExtResource("12_nie6d")
 [node name="boss_fistR" type="Sprite3D" parent="boss_armR"]
 transform = Transform3D(0.694746, -0.719255, 0, 0.719255, 0.694746, 0, 0, 0, 1, 0.626073, -0.340358, 0)
 flip_h = true
+modulate = Color(0.745098, 0.843137, 0.176471, 1)
 render_priority = 4
 texture = ExtResource("11_drb6c")
 
