@@ -76,10 +76,11 @@ func _physics_process(_delta):
 		velocity.x = move_toward(velocity.x, 0, FRICTION)
 		velocity.z = move_toward(velocity.z, 0, FRICTION)
 		
-	if !velocity && (sprites.find_child("Animation") as AnimationPlayer).current_animation != "Idle":
-		(sprites.find_child("Animation") as AnimationPlayer).play("Idle")
-	elif velocity && (sprites.find_child("Animation") as AnimationPlayer).current_animation != "Run": 
-		(sprites.find_child("Animation") as AnimationPlayer).play("Run")
+	if movement_enabled:
+		if !velocity && (sprites.find_child("Animation") as AnimationPlayer).current_animation != "Idle":
+			(sprites.find_child("Animation") as AnimationPlayer).play("Idle")
+		elif velocity && (sprites.find_child("Animation") as AnimationPlayer).current_animation != "Run": 
+			(sprites.find_child("Animation") as AnimationPlayer).play("Run")
 	
 	if aim:
 		attackArea.rotation.y = Vector2(aim_direction.x, aim_direction.y * -1).angle()
