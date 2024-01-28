@@ -1,13 +1,15 @@
-[gd_scene load_steps=19 format=3 uid="uid://cnisgb7eskrlp"]
+[gd_scene load_steps=21 format=3 uid="uid://cnisgb7eskrlp"]
 
 [ext_resource type="PackedScene" uid="uid://dntbubkn7i4aa" path="res://player.tscn" id="1_4g4tu"]
 [ext_resource type="Script" path="res://game.gd" id="1_ss7n6"]
 [ext_resource type="Texture2D" uid="uid://boq30yrrbsu5j" path="res://Sprites/Untitled-1.png" id="2_psycr"]
 [ext_resource type="Script" path="res://smokescroll_xy.gd" id="3_34qty"]
-[ext_resource type="Texture2D" uid="uid://bxyimot2omaxd" path="res://Sprites/Tiles/Tile_hexagon.png" id="3_hm4tt"]
+[ext_resource type="AudioStream" uid="uid://cggl4650ra6wy" path="res://Sounds/bobbler.ogg" id="3_nomj6"]
 [ext_resource type="Script" path="res://smokescroll_x.gd" id="4_2wss6"]
+[ext_resource type="AudioStream" uid="uid://bpu3reaf083k6" path="res://Sounds/bobbler_bonk.ogg" id="4_eghuh"]
 [ext_resource type="Script" path="res://smokescroll_y.gd" id="5_cgiml"]
-[ext_resource type="AudioStream" uid="uid://dqpwbis4d6b1n" path="res://Sounds/music.ogg" id="7_8jeh3"]
+[ext_resource type="AudioStream" uid="uid://dm0tf22lavd6v" path="res://Sounds/bobbler_hit.ogg" id="5_fj3lv"]
+[ext_resource type="AudioStream" uid="uid://4upr3uxx1imv" path="res://Sounds/bobbler_death.ogg" id="6_fjuh7"]
 
 [sub_resource type="Environment" id="Environment_4csi7"]
 
@@ -69,6 +71,10 @@ PLAYER_COLOR_BASE = Color(0.254902, 0.803922, 0.45098, 1)
 PLAYER_COLOR_DARK = Color(0.0588235, 0.647059, 0.411765, 1)
 PLAYER_COLOR_HIGHLIGHT = Color(0.0588235, 0.45098, 0.45098, 1)
 PLAYER_COLOR = Color(0.45098, 1, 0.45098, 1)
+DASH_SOUND = ExtResource("3_nomj6")
+ATTACK_SOUND = ExtResource("4_eghuh")
+HIT_SOUND = ExtResource("5_fj3lv")
+DEATH_SOUND = ExtResource("6_fjuh7")
 
 [node name="Player2" parent="." instance=ExtResource("1_4g4tu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.25, 0.1, 4.2)
@@ -117,19 +123,11 @@ radius = 2.44
 height = 0.001
 sides = 6
 
-[node name="Sprite3D" type="Sprite3D" parent="CSGCylinder3D/CSGCylinder3D15"]
-axis = 1
-texture = ExtResource("3_hm4tt")
-
 [node name="CSGCylinder3D14" type="CSGCylinder3D" parent="CSGCylinder3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.65, 0, -6.3)
 radius = 2.44
 height = 0.001
 sides = 6
-
-[node name="Sprite3D" type="Sprite3D" parent="CSGCylinder3D/CSGCylinder3D14"]
-axis = 1
-texture = ExtResource("3_hm4tt")
 
 [node name="CSGCylinder3D11" type="CSGCylinder3D" parent="CSGCylinder3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.3, 0, -4.2)
@@ -137,19 +135,11 @@ radius = 2.44
 height = 0.001
 sides = 6
 
-[node name="Sprite3D" type="Sprite3D" parent="CSGCylinder3D/CSGCylinder3D11"]
-axis = 1
-texture = ExtResource("3_hm4tt")
-
 [node name="CSGCylinder3D8" type="CSGCylinder3D" parent="CSGCylinder3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.3, 0, 0)
 radius = 2.44
 height = 0.001
 sides = 6
-
-[node name="Sprite3D" type="Sprite3D" parent="CSGCylinder3D/CSGCylinder3D8"]
-axis = 1
-texture = ExtResource("3_hm4tt")
 
 [node name="CSGCylinder3D10" type="CSGCylinder3D" parent="CSGCylinder3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.3, 0, 4.2)
@@ -157,19 +147,11 @@ radius = 2.44
 height = 0.001
 sides = 6
 
-[node name="Sprite3D" type="Sprite3D" parent="CSGCylinder3D/CSGCylinder3D10"]
-axis = 1
-texture = ExtResource("3_hm4tt")
-
 [node name="CSGCylinder3D12" type="CSGCylinder3D" parent="CSGCylinder3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.3, 0, -4.2)
 radius = 2.44
 height = 0.001
 sides = 6
-
-[node name="Sprite3D" type="Sprite3D" parent="CSGCylinder3D/CSGCylinder3D12"]
-axis = 1
-texture = ExtResource("3_hm4tt")
 
 [node name="CSGCylinder3D13" type="CSGCylinder3D" parent="CSGCylinder3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.3, 0, 4.2)
@@ -177,19 +159,11 @@ radius = 2.44
 height = 0.001
 sides = 6
 
-[node name="Sprite3D" type="Sprite3D" parent="CSGCylinder3D/CSGCylinder3D13"]
-axis = 1
-texture = ExtResource("3_hm4tt")
-
 [node name="CSGCylinder3D9" type="CSGCylinder3D" parent="CSGCylinder3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.3, 0, 0)
 radius = 2.44
 height = 0.001
 sides = 6
-
-[node name="Sprite3D" type="Sprite3D" parent="CSGCylinder3D/CSGCylinder3D9"]
-axis = 1
-texture = ExtResource("3_hm4tt")
 
 [node name="CSGCylinder3D3" type="CSGCylinder3D" parent="CSGCylinder3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.65, 0, 2.1)
@@ -197,19 +171,11 @@ radius = 2.44
 height = 0.001
 sides = 6
 
-[node name="Sprite3D" type="Sprite3D" parent="CSGCylinder3D/CSGCylinder3D3"]
-axis = 1
-texture = ExtResource("3_hm4tt")
-
 [node name="CSGCylinder3D16" type="CSGCylinder3D" parent="CSGCylinder3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.65, 0, 6.3)
 radius = 2.44
 height = 0.001
 sides = 6
-
-[node name="Sprite3D" type="Sprite3D" parent="CSGCylinder3D/CSGCylinder3D16"]
-axis = 1
-texture = ExtResource("3_hm4tt")
 
 [node name="CSGCylinder3D17" type="CSGCylinder3D" parent="CSGCylinder3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.65, 0, 6.3)
@@ -217,19 +183,11 @@ radius = 2.44
 height = 0.001
 sides = 6
 
-[node name="Sprite3D" type="Sprite3D" parent="CSGCylinder3D/CSGCylinder3D17"]
-axis = 1
-texture = ExtResource("3_hm4tt")
-
 [node name="CSGCylinder3D7" type="CSGCylinder3D" parent="CSGCylinder3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.65, 0, -2.1)
 radius = 2.44
 height = 0.001
 sides = 6
-
-[node name="Sprite3D" type="Sprite3D" parent="CSGCylinder3D/CSGCylinder3D7"]
-axis = 1
-texture = ExtResource("3_hm4tt")
 
 [node name="CSGCylinder3D4" type="CSGCylinder3D" parent="CSGCylinder3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.65, 0, 2.1)
@@ -237,19 +195,11 @@ radius = 2.44
 height = 0.001
 sides = 6
 
-[node name="Sprite3D" type="Sprite3D" parent="CSGCylinder3D/CSGCylinder3D4"]
-axis = 1
-texture = ExtResource("3_hm4tt")
-
 [node name="CSGCylinder3D5" type="CSGCylinder3D" parent="CSGCylinder3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.65, 0, -2.1)
 radius = 2.44
 height = 0.001
 sides = 6
-
-[node name="Sprite3D" type="Sprite3D" parent="CSGCylinder3D/CSGCylinder3D5"]
-axis = 1
-texture = ExtResource("3_hm4tt")
 
 [node name="CSGCylinder3D2" type="CSGCylinder3D" parent="CSGCylinder3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4.2)
@@ -257,43 +207,26 @@ radius = 2.44
 height = 0.001
 sides = 6
 
-[node name="Sprite3D" type="Sprite3D" parent="CSGCylinder3D/CSGCylinder3D2"]
-axis = 1
-texture = ExtResource("3_hm4tt")
-
 [node name="CSGCylinder3D6" type="CSGCylinder3D" parent="CSGCylinder3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4.2)
 radius = 2.44
 height = 0.001
 sides = 6
 
-[node name="Sprite3D" type="Sprite3D" parent="CSGCylinder3D/CSGCylinder3D6"]
-axis = 1
-texture = ExtResource("3_hm4tt")
-
-[node name="Sprite3D" type="Sprite3D" parent="CSGCylinder3D"]
-axis = 1
-texture = ExtResource("3_hm4tt")
-
-[node name="BG_FRONT" type="MeshInstance3D" parent="."]
-transform = Transform3D(-100, -1.50996e-05, 6.60024e-13, 0, -4.37114e-06, -100, 1.50996e-05, -100, 4.37114e-06, 0, -0.35, 0)
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(-50, -4.37114e-06, 1.91069e-13, 0, -2.18557e-06, -50, 4.37114e-06, -50, 2.18557e-06, 0, -0.284, 0)
 mesh = SubResource("QuadMesh_lbnv4")
 surface_material_override/0 = SubResource("StandardMaterial3D_6at5u")
 script = ExtResource("3_34qty")
 
-[node name="BG_MID" type="MeshInstance3D" parent="."]
-transform = Transform3D(-100, -1.50996e-05, 6.60024e-13, 0, -4.37114e-06, -100, 1.50996e-05, -100, 4.37114e-06, 0, -0.5, 0)
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(-50, -4.37114e-06, 1.91069e-13, 0, -2.18557e-06, -50, 4.37114e-06, -50, 2.18557e-06, 0, -0.284, 0)
 mesh = SubResource("QuadMesh_lj4k3")
 surface_material_override/0 = SubResource("StandardMaterial3D_mv5h2")
 script = ExtResource("4_2wss6")
 
-[node name="BG_BACK" type="MeshInstance3D" parent="."]
-transform = Transform3D(-100, -1.50996e-05, 6.60024e-13, 0, -4.37114e-06, -100, 1.50996e-05, -100, 4.37114e-06, 0, -1, 0)
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
+transform = Transform3D(-50, -4.37114e-06, 1.91069e-13, 0, -2.18557e-06, -50, 4.37114e-06, -50, 2.18557e-06, 0, -5, 0)
 mesh = SubResource("QuadMesh_rllqw")
 surface_material_override/0 = SubResource("StandardMaterial3D_knx1g")
 script = ExtResource("5_cgiml")
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("7_8jeh3")
-volume_db = -10.0
-autoplay = true

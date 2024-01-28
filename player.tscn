@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://lnnka2s7qr7j" path="res://Sprites/Char/target.png" id="5_6i58p"]
 [ext_resource type="Texture2D" uid="uid://2hhlw5ycx5u1" path="res://Sprites/Char/target_fill.png" id="6_h2sc8"]
 [ext_resource type="Texture2D" uid="uid://cju2wbsu4o6sw" path="res://Sprites/Char/target_edge.png" id="7_bd2gn"]
-[ext_resource type="PackedScene" uid="uid://cbrm2csgncl0f" path="res://healthBar.tscn" id="8_srlb4"]
+[ext_resource type="PackedScene" path="res://healthBar.tscn" id="8_srlb4"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_74j06"]
 height = 1.22353
@@ -27,8 +27,17 @@ collision_mask = 3
 collision_priority = 2.0
 axis_lock_linear_y = true
 script = ExtResource("1_4qlm8")
+PLAYER_NUMBER = null
+SPEED = null
+FRICTION = null
 BOUNCE_SPEED = 20
+DASH_LENGTH = null
 DASH_SPEED = 2
+PLAYER_COLOR_BASE = null
+PLAYER_COLOR_DARK = null
+PLAYER_COLOR_HIGHLIGHT = null
+PLAYER_COLOR = null
+MAX_HEALTH = null
 
 [node name="Sprites" parent="." instance=ExtResource("2_47dxv")]
 transform = Transform3D(1, 0, 0, 0, 0.258819, 0.965926, 0, -0.965926, 0.258819, 0, 0, 0.195)
@@ -110,6 +119,14 @@ transparent_bg = true
 transform = Transform3D(0.65, 0, 0, 0, 0.168232, 0.627852, 0, -0.627852, 0.168232, 0, 0.275, -0.85)
 render_priority = 40
 texture = SubResource("ViewportTexture_s6ykp")
+
+[node name="DashPlayer" type="AudioStreamPlayer" parent="."]
+
+[node name="AttackPlayer" type="AudioStreamPlayer" parent="."]
+
+[node name="HitPlayer" type="AudioStreamPlayer" parent="."]
+
+[node name="DeathPlayer" type="AudioStreamPlayer" parent="."]
 
 [connection signal="area_entered" from="PlayerCollisionArea" to="." method="_on_player_collision_area_area_entered"]
 [connection signal="body_entered" from="PlayerCollisionArea" to="." method="_on_player_collision_area_body_entered"]
