@@ -4,7 +4,7 @@ extends Node3D
 @onready var player_3 = $Player3
 @onready var player_4 = $Player4
 
-var players = [player_1, player_2, player_3, player_4]
+@onready var players = [player_1, player_2, player_3, player_4]
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
@@ -13,11 +13,12 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	var playersAlive = []
-	#for player in players:
-		#if player.visible:
-			#playersAlive.append(player)
+	for player in players:
+		if player.visible:
+			playersAlive.append(player)
 	
-	#if playersAlive.count <= 1:
+	if playersAlive.size() <= 1:
 		#TODO: give hat and end round
-		#pass
+		get_tree().reload_current_scene()
+		pass
 
