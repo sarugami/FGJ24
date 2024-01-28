@@ -1,0 +1,79 @@
+[gd_scene load_steps=13 format=3 uid="uid://b5e8jl64hwe1m"]
+
+[ext_resource type="Texture2D" uid="uid://bq3nolxxjs845" path="res://Sprites/Boss/boss_throne.png" id="1_mlq51"]
+[ext_resource type="Texture2D" uid="uid://d1kfp3d0jtg05" path="res://Sprites/Boss/boss_body.png" id="2_66w27"]
+[ext_resource type="Texture2D" uid="uid://cvbvawye2ruld" path="res://Sprites/Boss/boss_eyes.png" id="3_i2jtv"]
+[ext_resource type="Texture2D" uid="uid://dnjwmreqvasbd" path="res://Sprites/Boss/boss_legL.png" id="4_imyd5"]
+[ext_resource type="Texture2D" uid="uid://cic2ce71p4bxg" path="res://Sprites/Boss/boss_legR.png" id="5_mcmlm"]
+[ext_resource type="Texture2D" uid="uid://djw645yvaw1ar" path="res://Sprites/Boss/boss_mouthAngry.png" id="6_4sc1s"]
+[ext_resource type="Texture2D" uid="uid://bphylx1e7b211" path="res://Sprites/Boss/boss_earL.png" id="7_lrynl"]
+[ext_resource type="Texture2D" uid="uid://c872e336uecn0" path="res://Sprites/Boss/boss_earR.png" id="8_8wjho"]
+[ext_resource type="Texture2D" uid="uid://dx5ec60mcsvv0" path="res://Sprites/Boss/boss_crown.png" id="9_6bjs1"]
+[ext_resource type="Texture2D" uid="uid://ct7brk0r61sot" path="res://Sprites/Boss/boss_armL.png" id="10_03wi1"]
+[ext_resource type="Texture2D" uid="uid://b1p6nt0n48r3w" path="res://Sprites/Boss/boss_fist.png" id="11_drb6c"]
+[ext_resource type="Texture2D" uid="uid://dwb8l05kptl2h" path="res://Sprites/Boss/boss_armR.png" id="12_nie6d"]
+
+[node name="Boss" type="Node3D"]
+
+[node name="boss_throne" type="Sprite3D" parent="."]
+texture = ExtResource("1_mlq51")
+
+[node name="boss_body" type="Sprite3D" parent="boss_throne"]
+render_priority = 2
+texture = ExtResource("2_66w27")
+
+[node name="boss_eyes" type="Sprite3D" parent="boss_throne"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.320747, 0.476545, 0)
+render_priority = 4
+texture = ExtResource("3_i2jtv")
+
+[node name="boss_legL" type="Sprite3D" parent="boss_throne"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.828685, -1.01952, 0)
+render_priority = 3
+texture = ExtResource("4_imyd5")
+
+[node name="boss_legR" type="Sprite3D" parent="boss_throne"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.694312, -1.05072, 0)
+render_priority = 3
+texture = ExtResource("5_mcmlm")
+
+[node name="boss_mouth" type="Sprite3D" parent="boss_throne"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.309848, -0.464266, 0)
+render_priority = 3
+texture = ExtResource("6_4sc1s")
+
+[node name="boss_earL" type="Sprite3D" parent="boss_throne"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.53645, 0, 0)
+render_priority = 1
+texture = ExtResource("7_lrynl")
+
+[node name="boss_earR" type="Sprite3D" parent="boss_throne"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.42515, -0.109314, 0)
+render_priority = 2
+texture = ExtResource("8_8wjho")
+
+[node name="boss_crown" type="Sprite3D" parent="boss_throne"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.36814, 0)
+render_priority = 1
+texture = ExtResource("9_6bjs1")
+
+[node name="boss_armL" type="Sprite3D" parent="boss_throne"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.15024, -0.66257, 0)
+render_priority = 1
+texture = ExtResource("10_03wi1")
+
+[node name="boss_fistL" type="Sprite3D" parent="boss_throne/boss_armL"]
+transform = Transform3D(0.54313, 0.839648, 0, -0.839648, 0.54313, 0, 0, 0, 1, -0.841176, -0.229196, 0)
+render_priority = 4
+texture = ExtResource("11_drb6c")
+
+[node name="boss_armR" type="Sprite3D" parent="boss_throne"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2613, -0.629619, 0)
+render_priority = 2
+texture = ExtResource("12_nie6d")
+
+[node name="boss_fistR" type="Sprite3D" parent="boss_throne/boss_armR"]
+transform = Transform3D(0.694746, -0.719255, 0, 0.719255, 0.694746, 0, 0, 0, 1, 0.626073, -0.340358, 0)
+flip_h = true
+render_priority = 4
+texture = ExtResource("11_drb6c")
