@@ -26,14 +26,14 @@ func _process(delta):
 		alivePlayerCount = playersAlive.size()
 		#(boss.get_child("Animator") as AnimationPlayer).play("Boss_laugh")
 
-	if playersAlive.size() <= 1:
+	if playersAlive.size() <= 1 && !isGameEnd:
 		#TODO: give hat and end round
-		isGameEnd = true
 		var endscreenInstance = OVER_SCREEN.instantiate()
 		var winner = playersAlive[0].name
 		#(playersAlive[0].get_child("VictoryPlayer") as AudioStreamPlayer).play()
-		(endscreenInstance.find_child("Label") as Label).text = "Winner is " + winner + " Press enter to restart"
+		(endscreenInstance.find_child("Label") as Label).text = winner + " Wins!\nPress enter to restart"
 		add_child(endscreenInstance)
+		isGameEnd = true
 
 func _input(event):
 	if event.is_action_pressed("start") && isGameEnd:

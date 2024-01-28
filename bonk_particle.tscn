@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bjbyk1wxe00wp"]
+[gd_scene load_steps=10 format=3 uid="uid://bjbyk1wxe00wp"]
 
 [ext_resource type="Script" path="res://bonk_particle.gd" id="1_fvuhg"]
 [ext_resource type="Texture2D" uid="uid://lnnka2s7qr7j" path="res://Sprites/Char/target.png" id="1_jxjas"]
@@ -30,14 +30,6 @@ curve_x = SubResource("Curve_p2nx7")
 curve_y = SubResource("Curve_5q3ak")
 curve_z = SubResource("Curve_ifjfa")
 
-[sub_resource type="Curve" id="Curve_vl5rp"]
-max_value = 3.0
-_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
-point_count = 2
-
-[sub_resource type="CurveTexture" id="CurveTexture_ab761"]
-curve = SubResource("Curve_vl5rp")
-
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_1xo2g"]
 particle_flag_align_y = true
 emission_shape_scale = Vector3(0.25, 0.25, 0.25)
@@ -45,15 +37,14 @@ emission_shape = 1
 emission_sphere_radius = 1.0
 angle_min = -367.5
 angle_max = 400.5
-direction = Vector3(0, 16.76, 0)
+direction = Vector3(0, 20, 0)
 spread = 180.0
 initial_velocity_min = 3.0
 initial_velocity_max = 5.0
 gravity = Vector3(0, -3, 0)
 scale_min = 0.0
-scale_max = 8.0
+scale_max = 10.0
 scale_curve = SubResource("CurveXYZTexture_koglt")
-scale_over_velocity_curve = SubResource("CurveTexture_ab761")
 
 [sub_resource type="QuadMesh" id="QuadMesh_a20lc"]
 
@@ -64,7 +55,7 @@ script = ExtResource("1_fvuhg")
 [node name="Emitter" type="GPUParticles3D" parent="."]
 material_override = SubResource("StandardMaterial3D_d53fq")
 cast_shadow = 0
-amount = 20
+amount = 16
 lifetime = 0.5
 explosiveness = 1.0
 process_material = SubResource("ParticleProcessMaterial_1xo2g")

@@ -29,9 +29,19 @@
 [sub_resource type="Environment" id="Environment_4csi7"]
 background_mode = 1
 background_color = Color(0.152941, 0.113725, 0.25098, 1)
+glow_normalized = true
+glow_intensity = 3.0
+glow_strength = 1.44
+glow_bloom = 1.0
+glow_blend_mode = 0
+glow_hdr_threshold = 2.55
+glow_hdr_luminance_cap = 16.75
+glow_map_strength = 1.0
+adjustment_brightness = 0.01
+adjustment_contrast = 4.5
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8v54h"]
-albedo_color = Color(0.521569, 0.784314, 0.996078, 1)
+albedo_color = Color(0.501961, 0.690196, 0.839216, 1)
 
 [node name="Game" type="Node3D"]
 script = ExtResource("1_ss7n6")
@@ -39,7 +49,7 @@ script = ExtResource("1_ss7n6")
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.258819, 0.965926, 0, -0.965926, 0.258819, 0, 11.6911, 4.60583)
 current = true
-fov = 74.0494
+fov = 74.5781
 
 [node name="PhantomCameraHost" type="Node" parent="Camera3D"]
 script = ExtResource("2_8mcpn")
@@ -52,7 +62,7 @@ light_angular_distance = 90.0
 [node name="Gronk" parent="." instance=ExtResource("1_4g4tu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.25, 0.1, -4.2)
 FRICTION = 0.75
-BOUNCE_SPEED = 25
+BOUNCE_SPEED = 22
 DASH_SPEED = 20
 PLAYER_COLOR_BASE = Color(0.254902, 0.803922, 0.45098, 1)
 PLAYER_COLOR_DARK = Color(0.0588235, 0.647059, 0.411765, 1)
@@ -68,7 +78,7 @@ VICTORY_SOUND = ExtResource("7_8kugp")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.25, 0.1, 4.2)
 PLAYER_NUMBER = 2
 FRICTION = 0.75
-BOUNCE_SPEED = 25
+BOUNCE_SPEED = 22
 DASH_SPEED = 20
 PLAYER_COLOR_BASE = Color(0.254902, 0.843137, 0.843137, 1)
 PLAYER_COLOR_DARK = Color(0.0784314, 0.627451, 0.803922, 1)
@@ -84,7 +94,7 @@ VICTORY_SOUND = ExtResource("3_nomj6")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.25, 0.1, 4.2)
 PLAYER_NUMBER = 3
 FRICTION = 0.75
-BOUNCE_SPEED = 25
+BOUNCE_SPEED = 22
 DASH_SPEED = 20
 PLAYER_COLOR_BASE = Color(0.627451, 0.254902, 0.843137, 1)
 PLAYER_COLOR_DARK = Color(0.392157, 0.176471, 0.705882, 1)
@@ -100,7 +110,7 @@ VICTORY_SOUND = ExtResource("15_k2srp")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.25, 0.1, -4.2)
 PLAYER_NUMBER = 4
 FRICTION = 0.75
-BOUNCE_SPEED = 25
+BOUNCE_SPEED = 22
 DASH_SPEED = 20
 PLAYER_COLOR_BASE = Color(1, 0.54902, 0.54902, 1)
 PLAYER_COLOR_DARK = Color(0.901961, 0.313726, 0.470588, 1)
@@ -116,7 +126,7 @@ VICTORY_SOUND = ExtResource("19_ptruh")
 environment = SubResource("Environment_4csi7")
 
 [node name="Boss" parent="." instance=ExtResource("7_2vykb")]
-transform = Transform3D(0.75, 0, 0, 0, 0.194114, 0.724444, 0, -0.724444, 0.194114, 0, 0.448105, -0.339786)
+transform = Transform3D(0.75, 0, 0, 0, 0.194114, 0.724444, 0, -0.724444, 0.194114, 0, 0.528, -0.34)
 
 [node name="BG" parent="." instance=ExtResource("7_kgak6")]
 
@@ -128,108 +138,176 @@ texture = ExtResource("9_gdg2s")
 
 [node name="CSGCylinder3D" type="CSGCylinder3D" parent="."]
 material_override = SubResource("StandardMaterial3D_8v54h")
+cast_shadow = 0
+gi_mode = 0
+calculate_tangents = false
 use_collision = true
 collision_layer = 8
 collision_mask = 0
-radius = 2.44
-height = 0.001
+radius = 2.433
+height = 0.01
 sides = 6
+smooth_faces = false
 
 [node name="CSGCylinder3D15" type="CSGCylinder3D" parent="CSGCylinder3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.65, 0, -6.3)
-radius = 2.44
+cast_shadow = 0
+gi_mode = 0
+calculate_tangents = false
+radius = 2.433
 height = 0.001
 sides = 6
+smooth_faces = false
 
 [node name="CSGCylinder3D14" type="CSGCylinder3D" parent="CSGCylinder3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.65, 0, -6.3)
-radius = 2.44
+cast_shadow = 0
+gi_mode = 0
+calculate_tangents = false
+radius = 2.433
 height = 0.001
 sides = 6
+smooth_faces = false
 
 [node name="CSGCylinder3D11" type="CSGCylinder3D" parent="CSGCylinder3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.3, 0, -4.2)
-radius = 2.44
+cast_shadow = 0
+gi_mode = 0
+calculate_tangents = false
+radius = 2.433
 height = 0.001
 sides = 6
+smooth_faces = false
 
 [node name="CSGCylinder3D8" type="CSGCylinder3D" parent="CSGCylinder3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.3, 0, 0)
-radius = 2.44
+cast_shadow = 0
+gi_mode = 0
+calculate_tangents = false
+radius = 2.433
 height = 0.001
 sides = 6
+smooth_faces = false
 
 [node name="CSGCylinder3D10" type="CSGCylinder3D" parent="CSGCylinder3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.3, 0, 4.2)
-radius = 2.44
+cast_shadow = 0
+gi_mode = 0
+calculate_tangents = false
+radius = 2.433
 height = 0.001
 sides = 6
+smooth_faces = false
 
 [node name="CSGCylinder3D12" type="CSGCylinder3D" parent="CSGCylinder3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.3, 0, -4.2)
-radius = 2.44
+cast_shadow = 0
+gi_mode = 0
+calculate_tangents = false
+radius = 2.433
 height = 0.001
 sides = 6
+smooth_faces = false
 
 [node name="CSGCylinder3D13" type="CSGCylinder3D" parent="CSGCylinder3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.3, 0, 4.2)
-radius = 2.44
+cast_shadow = 0
+gi_mode = 0
+calculate_tangents = false
+radius = 2.433
 height = 0.001
 sides = 6
+smooth_faces = false
 
 [node name="CSGCylinder3D9" type="CSGCylinder3D" parent="CSGCylinder3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.3, 0, 0)
-radius = 2.44
+cast_shadow = 0
+gi_mode = 0
+calculate_tangents = false
+radius = 2.433
 height = 0.001
 sides = 6
+smooth_faces = false
 
 [node name="CSGCylinder3D3" type="CSGCylinder3D" parent="CSGCylinder3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.65, 0, 2.1)
-radius = 2.44
+cast_shadow = 0
+gi_mode = 0
+calculate_tangents = false
+radius = 2.433
 height = 0.001
 sides = 6
+smooth_faces = false
 
 [node name="CSGCylinder3D16" type="CSGCylinder3D" parent="CSGCylinder3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.65, 0, 6.3)
-radius = 2.44
+cast_shadow = 0
+gi_mode = 0
+calculate_tangents = false
+radius = 2.433
 height = 0.001
 sides = 6
+smooth_faces = false
 
 [node name="CSGCylinder3D17" type="CSGCylinder3D" parent="CSGCylinder3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.65, 0, 6.3)
-radius = 2.44
+cast_shadow = 0
+gi_mode = 0
+calculate_tangents = false
+radius = 2.433
 height = 0.001
 sides = 6
+smooth_faces = false
 
 [node name="CSGCylinder3D7" type="CSGCylinder3D" parent="CSGCylinder3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.65, 0, -2.1)
-radius = 2.44
+cast_shadow = 0
+gi_mode = 0
+calculate_tangents = false
+radius = 2.433
 height = 0.001
 sides = 6
+smooth_faces = false
 
 [node name="CSGCylinder3D4" type="CSGCylinder3D" parent="CSGCylinder3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.65, 0, 2.1)
-radius = 2.44
+cast_shadow = 0
+gi_mode = 0
+calculate_tangents = false
+radius = 2.433
 height = 0.001
 sides = 6
+smooth_faces = false
 
 [node name="CSGCylinder3D5" type="CSGCylinder3D" parent="CSGCylinder3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.65, 0, -2.1)
-radius = 2.44
+cast_shadow = 0
+gi_mode = 0
+calculate_tangents = false
+radius = 2.433
 height = 0.001
 sides = 6
+smooth_faces = false
 
 [node name="CSGCylinder3D2" type="CSGCylinder3D" parent="CSGCylinder3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4.2)
-radius = 2.44
+cast_shadow = 0
+gi_mode = 0
+calculate_tangents = false
+radius = 2.433
 height = 0.001
 sides = 6
+smooth_faces = false
 
 [node name="CSGCylinder3D6" type="CSGCylinder3D" parent="CSGCylinder3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4.2)
-radius = 2.44
+cast_shadow = 0
+gi_mode = 0
+calculate_tangents = false
+radius = 2.433
 height = 0.001
 sides = 6
+smooth_faces = false
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("10_cmwqr")
