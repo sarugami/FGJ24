@@ -149,6 +149,8 @@ func stopAttack():
 
 func _on_bonk_charge_timer_timeout():
 	bonk_ready = true
+	aim_circle.modulate = Color("white")
+	aim_fill.modulate = Color("white")
 
 func _on_dash_timer_timeout():
 	can_dash = true
@@ -157,6 +159,8 @@ func _on_bonk_effect_timer_timeout():
 	attackAreaCollider.disabled = true
 	aim_circle.visible = false
 	movement_enabled = true
+	aim_circle.modulate = PLAYER_COLOR
+	aim_fill.modulate = PLAYER_COLOR
 
 func _on_stun_timer_timeout():
 	movement_enabled = true
