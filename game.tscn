@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://cnisgb7eskrlp"]
+[gd_scene load_steps=12 format=3 uid="uid://cnisgb7eskrlp"]
 
 [ext_resource type="PackedScene" uid="uid://dntbubkn7i4aa" path="res://player.tscn" id="1_4g4tu"]
 [ext_resource type="Script" path="res://game.gd" id="1_ss7n6"]
@@ -6,7 +6,9 @@
 [ext_resource type="AudioStream" uid="uid://bpu3reaf083k6" path="res://Sounds/bobbler_bonk.ogg" id="4_eghuh"]
 [ext_resource type="AudioStream" uid="uid://dm0tf22lavd6v" path="res://Sounds/bobbler_hit.ogg" id="5_fj3lv"]
 [ext_resource type="AudioStream" uid="uid://4upr3uxx1imv" path="res://Sounds/bobbler_death.ogg" id="6_fjuh7"]
+[ext_resource type="PackedScene" uid="uid://b5e8jl64hwe1m" path="res://boss.tscn" id="7_2vykb"]
 [ext_resource type="PackedScene" uid="uid://6pfoc8kftl40" path="res://bg.tscn" id="7_kgak6"]
+[ext_resource type="Texture2D" uid="uid://ceprvc04wyh7y" path="res://Sprites/circle.png" id="9_gdg2s"]
 
 [sub_resource type="Environment" id="Environment_4csi7"]
 background_mode = 1
@@ -75,7 +77,16 @@ PLAYER_COLOR = Color(1, 0.709804, 0.74902, 1)
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_4csi7")
 
+[node name="Boss" parent="." instance=ExtResource("7_2vykb")]
+transform = Transform3D(0.75, 0, 0, 0, 0.194114, 0.724444, 0, -0.724444, 0.194114, 0, 0.448105, -0.339786)
+
 [node name="BG" parent="." instance=ExtResource("7_kgak6")]
+
+[node name="Shadow" type="Sprite3D" parent="."]
+transform = Transform3D(0.75, 0, 0, 0, -2.18557e-08, 0.75, 0, -0.5, -3.27835e-08, 0, 0.172464, 0.971659)
+modulate = Color(0, 0, 0, 0.235294)
+render_priority = -1
+texture = ExtResource("9_gdg2s")
 
 [node name="CSGCylinder3D" type="CSGCylinder3D" parent="."]
 material_override = SubResource("StandardMaterial3D_8v54h")
