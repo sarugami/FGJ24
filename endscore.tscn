@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://cqul0fh2hdbl0"]
+
+[node name="Endscore" type="Node2D"]
+
+[node name="Label" type="Label" parent="."]
+offset_left = 522.0
+offset_top = 357.0
+offset_right = 562.0
+offset_bottom = 380.0
