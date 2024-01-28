@@ -17,7 +17,7 @@ config/icon="res://Sprites/Char/bonk_hammer2.png"
 
 [editor_plugins]
 
-enabled=PackedStringArray()
+enabled=PackedStringArray("res://addons/phantom_camera/plugin.cfg")
 
 [input]
 
