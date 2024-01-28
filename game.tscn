@@ -1,24 +1,15 @@
-[gd_scene load_steps=30 format=3 uid="uid://cnisgb7eskrlp"]
+[gd_scene load_steps=21 format=3 uid="uid://cnisgb7eskrlp"]
 
 [ext_resource type="PackedScene" uid="uid://dntbubkn7i4aa" path="res://player.tscn" id="1_4g4tu"]
 [ext_resource type="Script" path="res://game.gd" id="1_ss7n6"]
 [ext_resource type="Texture2D" uid="uid://boq30yrrbsu5j" path="res://Sprites/Untitled-1.png" id="2_psycr"]
 [ext_resource type="Script" path="res://smokescroll_xy.gd" id="3_34qty"]
-[ext_resource type="AudioStream" uid="uid://dnpyad0f53r6b" path="res://Sounds/dash.ogg" id="3_kognn"]
+[ext_resource type="AudioStream" uid="uid://cggl4650ra6wy" path="res://Sounds/bobbler.ogg" id="3_nomj6"]
 [ext_resource type="Script" path="res://smokescroll_x.gd" id="4_2wss6"]
 [ext_resource type="AudioStream" uid="uid://bpu3reaf083k6" path="res://Sounds/bobbler_bonk.ogg" id="4_eghuh"]
-[ext_resource type="AudioStream" uid="uid://b23vfx6lf1xw0" path="res://Sounds/gronk_bonk.ogg" id="4_xfcah"]
 [ext_resource type="Script" path="res://smokescroll_y.gd" id="5_cgiml"]
 [ext_resource type="AudioStream" uid="uid://dm0tf22lavd6v" path="res://Sounds/bobbler_hit.ogg" id="5_fj3lv"]
-[ext_resource type="AudioStream" uid="uid://b21s6g6d5rm42" path="res://Sounds/gronk_hit.ogg" id="5_fp5uf"]
-[ext_resource type="AudioStream" uid="uid://clkkvygrf7fwh" path="res://Sounds/gronk_death.ogg" id="6_8oqkb"]
 [ext_resource type="AudioStream" uid="uid://4upr3uxx1imv" path="res://Sounds/bobbler_death.ogg" id="6_fjuh7"]
-[ext_resource type="AudioStream" uid="uid://dj43d44isx8tt" path="res://Sounds/plump_bonk.ogg" id="10_uscub"]
-[ext_resource type="AudioStream" uid="uid://bwacblhiyx8nw" path="res://Sounds/plump_hit.ogg" id="11_62708"]
-[ext_resource type="AudioStream" uid="uid://dqsupsv2v68nt" path="res://Sounds/plump_death.ogg" id="12_op4kg"]
-[ext_resource type="AudioStream" uid="uid://c5jttxlqg4hmp" path="res://Sounds/yippee_bonk.ogg" id="13_skq3e"]
-[ext_resource type="AudioStream" uid="uid://jhdmaecs5uts" path="res://Sounds/yippee_hit.ogg" id="14_48jka"]
-[ext_resource type="AudioStream" uid="uid://cqsh8po8h82in" path="res://Sounds/yippee_death.ogg" id="15_151yv"]
 
 [sub_resource type="Environment" id="Environment_4csi7"]
 
@@ -73,75 +64,47 @@ light_angular_distance = 90.0
 
 [node name="Gronk" parent="." instance=ExtResource("1_4g4tu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.25, 0.1, -4.2)
-PLAYER_NUMBER = 1
-SPEED = 5.0
 FRICTION = 0.75
 BOUNCE_SPEED = 25
-DASH_LENGTH = 2.5
 DASH_SPEED = 20
 PLAYER_COLOR_BASE = Color(0.254902, 0.803922, 0.45098, 1)
 PLAYER_COLOR_DARK = Color(0.0588235, 0.647059, 0.411765, 1)
 PLAYER_COLOR_HIGHLIGHT = Color(0.0588235, 0.45098, 0.45098, 1)
 PLAYER_COLOR = Color(0.45098, 1, 0.45098, 1)
-MAX_HEALTH = 100.0
-DASH_SOUND = ExtResource("3_kognn")
-ATTACK_SOUND = ExtResource("4_xfcah")
-HIT_SOUND = ExtResource("5_fp5uf")
-DEATH_SOUND = ExtResource("6_8oqkb")
-
-[node name="Bobbler" parent="." instance=ExtResource("1_4g4tu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.25, 0.1, 4.2)
-PLAYER_NUMBER = 2
-SPEED = 5.0
-FRICTION = 0.75
-BOUNCE_SPEED = 25
-DASH_LENGTH = 2.5
-DASH_SPEED = 20
-PLAYER_COLOR_BASE = Color(0.254902, 0.843137, 0.843137, 1)
-PLAYER_COLOR_DARK = Color(0.0784314, 0.627451, 0.803922, 1)
-PLAYER_COLOR_HIGHLIGHT = Color(0.0784314, 0.411765, 0.764706, 1)
-PLAYER_COLOR = Color(0.509804, 1, 0.882353, 1)
-MAX_HEALTH = 100.0
-DASH_SOUND = ExtResource("3_kognn")
+DASH_SOUND = ExtResource("3_nomj6")
 ATTACK_SOUND = ExtResource("4_eghuh")
 HIT_SOUND = ExtResource("5_fj3lv")
 DEATH_SOUND = ExtResource("6_fjuh7")
 
+[node name="Bobbler" parent="." instance=ExtResource("1_4g4tu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.25, 0.1, 4.2)
+PLAYER_NUMBER = 2
+FRICTION = 0.75
+BOUNCE_SPEED = 25
+PLAYER_COLOR_BASE = Color(0.254902, 0.843137, 0.843137, 1)
+PLAYER_COLOR_DARK = Color(0.0784314, 0.627451, 0.803922, 1)
+PLAYER_COLOR_HIGHLIGHT = Color(0.0784314, 0.411765, 0.764706, 1)
+PLAYER_COLOR = Color(0.509804, 1, 0.882353, 1)
+
 [node name="Plump" parent="." instance=ExtResource("1_4g4tu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.25, 0.1, 4.2)
 PLAYER_NUMBER = 3
-SPEED = 5.0
 FRICTION = 0.75
 BOUNCE_SPEED = 25
-DASH_LENGTH = 2.5
-DASH_SPEED = 20
 PLAYER_COLOR_BASE = Color(0.627451, 0.254902, 0.843137, 1)
 PLAYER_COLOR_DARK = Color(0.392157, 0.176471, 0.705882, 1)
 PLAYER_COLOR_HIGHLIGHT = Color(0.235294, 0.117647, 0.54902, 1)
 PLAYER_COLOR = Color(0.882353, 0.580392, 1, 1)
-MAX_HEALTH = 100.0
-DASH_SOUND = ExtResource("3_kognn")
-ATTACK_SOUND = ExtResource("10_uscub")
-HIT_SOUND = ExtResource("11_62708")
-DEATH_SOUND = ExtResource("12_op4kg")
 
 [node name="Yippee" parent="." instance=ExtResource("1_4g4tu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.25, 0.1, -4.2)
 PLAYER_NUMBER = 4
-SPEED = 5.0
 FRICTION = 0.75
 BOUNCE_SPEED = 25
-DASH_LENGTH = 2.5
-DASH_SPEED = 20
 PLAYER_COLOR_BASE = Color(1, 0.54902, 0.54902, 1)
 PLAYER_COLOR_DARK = Color(0.901961, 0.313726, 0.470588, 1)
 PLAYER_COLOR_HIGHLIGHT = Color(0.705882, 0.137255, 0.431373, 1)
 PLAYER_COLOR = Color(1, 0.709804, 0.74902, 1)
-MAX_HEALTH = 100.0
-DASH_SOUND = ExtResource("3_kognn")
-ATTACK_SOUND = ExtResource("13_skq3e")
-HIT_SOUND = ExtResource("14_48jka")
-DEATH_SOUND = ExtResource("15_151yv")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_4csi7")

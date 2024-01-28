@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://lnnka2s7qr7j" path="res://Sprites/Char/target.png" id="5_6i58p"]
 [ext_resource type="Texture2D" uid="uid://2hhlw5ycx5u1" path="res://Sprites/Char/target_fill.png" id="6_h2sc8"]
 [ext_resource type="Texture2D" uid="uid://cju2wbsu4o6sw" path="res://Sprites/Char/target_edge.png" id="7_bd2gn"]
-[ext_resource type="PackedScene" uid="uid://cbrm2csgncl0f" path="res://healthBar.tscn" id="8_srlb4"]
+[ext_resource type="PackedScene" path="res://healthBar.tscn" id="8_srlb4"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_74j06"]
 height = 1.22353
