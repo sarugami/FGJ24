@@ -20,6 +20,7 @@ const BONK_PARTICLE = preload("res://bonk_particle.tscn")
 @export var VICTORY_SOUND: AudioStreamOggVorbis
 
 @onready var dash_timer = $DashTimer
+@onready var stun_timer = $StunTimer
 @onready var bonk_charge_timer = $BonkChargeTimer
 @onready var bonk_effect_timer = $BonkEffectTimer
 @onready var marker_3d = $AttackArea/Marker3D
@@ -192,6 +193,8 @@ func _on_player_collision_area_area_entered(area):
 	velocity = Vector3(angleVector.x * BOUNCE_SPEED, 0, angleVector.y * BOUNCE_SPEED)
 	#print_debug("Bonk velocity: " + str(velocity))
 	movement_enabled = false
+	stun_timer.start()
+	dash_destination = null
 	currentHealth -= 10
 	hitPlayer.play()
 
