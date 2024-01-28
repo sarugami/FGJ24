@@ -1,9 +1,10 @@
 extends Node3D
 
+@onready var animator = $AnimationPlayer
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	animator.play("Boss_laugh")
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
