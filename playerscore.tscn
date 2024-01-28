@@ -22,6 +22,7 @@ offset_bottom = 10.0
 scale = Vector2(0.65, 0.65)
 
 [node name="Playernumber" type="RichTextLabel" parent="PlayerProfile"]
+layout_mode = 0
 offset_left = 230.0
 offset_top = 22.0
 offset_right = 431.0
@@ -54,6 +55,7 @@ grow_horizontal = 0
 scale = Vector2(0.65, 0.65)
 
 [node name="Playernumber" type="RichTextLabel" parent="PlayerProfile2"]
+layout_mode = 0
 offset_left = 100.0
 offset_top = 22.0
 offset_right = 301.0
@@ -90,6 +92,7 @@ grow_vertical = 0
 scale = Vector2(0.65, 0.65)
 
 [node name="Playernumber" type="RichTextLabel" parent="PlayerProfile4"]
+layout_mode = 0
 offset_left = 80.0
 offset_top = 22.0
 offset_right = 282.0
@@ -123,6 +126,7 @@ grow_vertical = 0
 scale = Vector2(0.65, 0.65)
 
 [node name="Playernumber" type="RichTextLabel" parent="PlayerProfile3"]
+layout_mode = 0
 offset_left = 230.0
 offset_top = 22.0
 offset_right = 432.0
