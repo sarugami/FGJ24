@@ -17,7 +17,7 @@ height = 1.70923
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_ityrd"]
 height = 0.298893
-radius = 0.894389
+radius = 1.32638
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_s6ykp"]
 viewport_path = NodePath("PlayerUi")
@@ -72,7 +72,7 @@ render_priority = 1
 texture = ExtResource("4_jkx8y")
 
 [node name="Marker3D" type="Marker3D" parent="AttackArea"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.25, 0, 0)
 
 [node name="Area3D" type="Area3D" parent="AttackArea/Marker3D"]
 collision_layer = 2
@@ -88,7 +88,7 @@ render_priority = 1
 texture = ExtResource("5_6i58p")
 
 [node name="AimCircle" type="Sprite3D" parent="AttackArea/Marker3D"]
-transform = Transform3D(0.33, 0, 0, 0, -1.44248e-08, -0.33, 0, 0.33, -1.44248e-08, 0, 0, 0)
+transform = Transform3D(0.5, 0, 0, 0, -2.18557e-08, -0.5, 0, 0.5, -2.18557e-08, 0, 0, 0)
 visible = false
 render_priority = 1
 texture = ExtResource("7_bd2gn")

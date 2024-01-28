@@ -1,6 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://cbrm2csgncl0f"]
-
-[ext_resource type="Texture2D" uid="uid://ceprvc04wyh7y" path="res://Sprites/circle.png" id="1_gh3q4"]
+[gd_scene load_steps=4 format=3 uid="uid://cbrm2csgncl0f"]
 
 [sub_resource type="Theme" id="Theme_8865h"]
 
@@ -40,8 +38,3 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_i3mgn")
 step = 1.0
 value = 100.0
 show_percentage = false
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(-25, 13)
-scale = Vector2(0.045, 0.045)
-texture = ExtResource("1_gh3q4")
