@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://bxyimot2omaxd" path="res://Sprites/Tiles/Tile_hexagon.png" id="3_hm4tt"]
 [ext_resource type="Script" path="res://smokescroll_x.gd" id="4_2wss6"]
 [ext_resource type="Script" path="res://smokescroll_y.gd" id="5_cgiml"]
+[ext_resource type="AudioStream" uid="uid://dqpwbis4d6b1n" path="res://Sounds/music.ogg" id="7_8jeh3"]
 
 [sub_resource type="Environment" id="Environment_4csi7"]
 
@@ -291,3 +292,8 @@ transform = Transform3D(-50, -4.37114e-06, 1.91069e-13, 0, -2.18557e-06, -50, 4.
 mesh = SubResource("QuadMesh_rllqw")
 surface_material_override/0 = SubResource("StandardMaterial3D_knx1g")
 script = ExtResource("5_cgiml")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_8jeh3")
+volume_db = -10.0
+autoplay = true
