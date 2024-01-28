@@ -7,7 +7,7 @@ extends Node3D
 
 const OVER_SCREEN = preload("res://endscore.tscn")
 
-
+var alivePlayerCount = 4
 var isGameEnd = false
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -21,11 +21,14 @@ func _process(delta):
 		if player.visible:
 			playersAlive.append(player)
 	
+	if alivePlayerCount > playersAlive.size()
+
 	if playersAlive.size() <= 1:
 		#TODO: give hat and end round
 		isGameEnd = true
 		var endscreenInstance = OVER_SCREEN.instantiate()
 		var winner = playersAlive[0].name
+		(winner.get_child("VictoryPlayer") as AudioStreamPlayer).play()
 		(endscreenInstance.find_child("Label") as Label).text = "Winner is " + winner + " Press enter to restart"
 		add_child(endscreenInstance)
 

@@ -17,6 +17,7 @@ const BONK_PARTICLE = preload("res://bonk_particle.tscn")
 @export var ATTACK_SOUND: AudioStreamOggVorbis
 @export var HIT_SOUND: AudioStreamOggVorbis
 @export var DEATH_SOUND: AudioStreamOggVorbis
+@export var VICTORY_SOUND: AudioStreamOggVorbis
 
 @onready var dash_timer = $DashTimer
 @onready var bonk_charge_timer = $BonkChargeTimer

@@ -1,9 +1,32 @@
-[gd_scene format=3 uid="uid://cqul0fh2hdbl0"]
+[gd_scene load_steps=3 format=3 uid="uid://dl4vrl5vult3r"]
 
-[node name="Endscore" type="Node2D"]
+[ext_resource type="FontFile" uid="uid://8m2xgdh1u4pb" path="res://Font/Rowdies-Bold.ttf" id="1_rk6bg"]
+
+[sub_resource type="Theme" id="Theme_h255s"]
+default_font = ExtResource("1_rk6bg")
+default_font_size = 32
+
+[node name="Endscore" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="Label" type="Label" parent="."]
-offset_left = 522.0
-offset_top = 357.0
-offset_right = 562.0
-offset_bottom = 380.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_h255s")
+horizontal_alignment = 1
+vertical_alignment = 1
