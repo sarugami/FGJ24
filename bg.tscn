@@ -1,0 +1,37 @@
+[gd_scene load_steps=8 format=3 uid="uid://6pfoc8kftl40"]
+
+[ext_resource type="Texture2D" uid="uid://b8xjeak46xjyo" path="res://Sprites/waves.png" id="1_a60it"]
+[ext_resource type="Script" path="res://smokescroll_xy.gd" id="2_0bd5m"]
+[ext_resource type="Script" path="res://smokescroll_x.gd" id="3_1k3em"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_p7e2c"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3ftlm"]
+transparency = 1
+cull_mode = 2
+albedo_color = Color(0.254902, 0, 0.254902, 0.705882)
+albedo_texture = ExtResource("1_a60it")
+uv1_scale = Vector3(10, 10, 10)
+
+[sub_resource type="QuadMesh" id="QuadMesh_smt8u"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2c7dl"]
+transparency = 1
+cull_mode = 2
+albedo_color = Color(0.0980392, 0.117647, 0.235294, 1)
+albedo_texture = ExtResource("1_a60it")
+uv1_scale = Vector3(7.5, 7.5, 7.5)
+
+[node name="BG" type="Node3D"]
+
+[node name="BG_FRONT" type="MeshInstance3D" parent="."]
+transform = Transform3D(70.7107, 70.7107, -3.09086e-06, 0, -4.37114e-06, -100, -70.7107, 70.7107, -3.09086e-06, 0, -0.35, 0)
+mesh = SubResource("QuadMesh_p7e2c")
+surface_material_override/0 = SubResource("StandardMaterial3D_3ftlm")
+script = ExtResource("2_0bd5m")
+
+[node name="BG_MID" type="MeshInstance3D" parent="."]
+transform = Transform3D(70.7107, -70.7107, 3.09086e-06, 0, -4.37114e-06, -100, 70.7107, 70.7107, -3.09086e-06, 0, -0.5, 0)
+mesh = SubResource("QuadMesh_smt8u")
+surface_material_override/0 = SubResource("StandardMaterial3D_2c7dl")
+script = ExtResource("3_1k3em")
