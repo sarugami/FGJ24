@@ -13,10 +13,10 @@ const BONK_PARTICLE = preload("res://bonk_particle.tscn")
 @export var PLAYER_COLOR_HIGHLIGHT = Color("green")
 @export var PLAYER_COLOR = Color("green")
 @export var MAX_HEALTH = 100.0
-@export var DASH_SOUND: AudioStreamPlayer
-@export var ATTACK_SOUND: AudioStreamPlayer
-@export var HIT_SOUND: AudioStreamPlayer
-@export var DEATH_SOUND: AudioStreamPlayer
+@export var DASH_SOUND: AudioStreamOggVorbis
+@export var ATTACK_SOUND: AudioStreamOggVorbis
+@export var HIT_SOUND: AudioStreamOggVorbis
+@export var DEATH_SOUND: AudioStreamOggVorbis
 
 @onready var dash_timer = $DashTimer
 @onready var bonk_charge_timer = $BonkChargeTimer
@@ -30,6 +30,10 @@ const BONK_PARTICLE = preload("res://bonk_particle.tscn")
 @onready var aim_direction = $AttackArea/AimDirection
 @onready var aim_reticle = $AttackArea/Marker3D/AimReticle
 @onready var health = $PlayerUi/Health
+@onready var dashPlayer = $DashPlayer
+@onready var attackPlayer = $AttackPlayer
+@onready var hitPlayer = $HitPlayer
+@onready var deathPlayer = $DeathPlayer
 
 var direction
 var can_dash = true
@@ -53,6 +57,10 @@ func _ready():
 	aim_reticle.modulate = PLAYER_COLOR
 	aim_direction.modulate = PLAYER_COLOR
 	aim_fill.modulate = PLAYER_COLOR
+	dashPlayer.stream = DASH_SOUND
+	attackPlayer.stream = ATTACK_SOUND
+	hitPlayer.stream = HIT_SOUND
+	deathPlayer.stream = DEATH_SOUND
 
 func _process(delta):
 	if !bonk_charge_timer.paused:
@@ -61,6 +69,7 @@ func _process(delta):
 	health.value = int((currentHealth / MAX_HEALTH) * 100)
 
 	if currentHealth <= 0:
+		deathPlayer.play()
 		visible = false
 		#queue_free()
 		set_process_mode(PROCESS_MODE_DISABLED) 
@@ -137,6 +146,7 @@ func dash():
 		dash_starting_point = position
 		dash_destination = direction * DASH_LENGTH
 		dash_timer.start()
+		dashPlayer.play()
 
 func attack():
 	bonk_charge_timer.start()
@@ -154,6 +164,7 @@ func stopAttack():
 		(sprites.find_child("Animation") as AnimationPlayer).play("Attack")
 		var particleInstance = BONK_PARTICLE.instantiate()
 		aim_reticle.add_child(particleInstance)
+		attackPlayer.play()
 
 func _on_bonk_charge_timer_timeout():
 	bonk_ready = true
@@ -181,6 +192,7 @@ func _on_player_collision_area_area_entered(area):
 	#print_debug("Bonk velocity: " + str(velocity))
 	movement_enabled = false
 	currentHealth -= 10
+	hitPlayer.play()
 
 func _on_player_collision_area_body_entered(body):
 	if !dash_destination:
