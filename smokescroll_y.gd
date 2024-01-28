@@ -1,6 +1,7 @@
 extends MeshInstance3D
 
-var speed = 0.2
+var speed = 0.025
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
