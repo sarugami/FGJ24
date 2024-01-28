@@ -74,7 +74,8 @@ func _process(delta):
 		deathPlayer.play()
 		visible = false
 		#queue_free()
-		#set_process_mode(PROCESS_MODE_DISABLED) 
+		position = Vector3(0, 0, 0)
+		set_process_mode(PROCESS_MODE_DISABLED) 
 
 func _physics_process(_delta):
 	## input handling
