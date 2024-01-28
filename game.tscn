@@ -62,7 +62,7 @@ transform = Transform3D(0.263317, -4.21688e-08, 0.964709, -0.964709, -1.151e-08,
 layers = 0
 light_angular_distance = 90.0
 
-[node name="Player" parent="." instance=ExtResource("1_4g4tu")]
+[node name="Gronk" parent="." instance=ExtResource("1_4g4tu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.25, 0.1, -4.2)
 FRICTION = 0.75
 BOUNCE_SPEED = 25
@@ -76,7 +76,7 @@ ATTACK_SOUND = ExtResource("4_eghuh")
 HIT_SOUND = ExtResource("5_fj3lv")
 DEATH_SOUND = ExtResource("6_fjuh7")
 
-[node name="Player2" parent="." instance=ExtResource("1_4g4tu")]
+[node name="Bobbler" parent="." instance=ExtResource("1_4g4tu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.25, 0.1, 4.2)
 PLAYER_NUMBER = 2
 FRICTION = 0.75
@@ -86,7 +86,7 @@ PLAYER_COLOR_DARK = Color(0.0784314, 0.627451, 0.803922, 1)
 PLAYER_COLOR_HIGHLIGHT = Color(0.0784314, 0.411765, 0.764706, 1)
 PLAYER_COLOR = Color(0.509804, 1, 0.882353, 1)
 
-[node name="Player3" parent="." instance=ExtResource("1_4g4tu")]
+[node name="Plump" parent="." instance=ExtResource("1_4g4tu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.25, 0.1, 4.2)
 PLAYER_NUMBER = 3
 FRICTION = 0.75
@@ -96,7 +96,7 @@ PLAYER_COLOR_DARK = Color(0.392157, 0.176471, 0.705882, 1)
 PLAYER_COLOR_HIGHLIGHT = Color(0.235294, 0.117647, 0.54902, 1)
 PLAYER_COLOR = Color(0.882353, 0.580392, 1, 1)
 
-[node name="Player4" parent="." instance=ExtResource("1_4g4tu")]
+[node name="Yippee" parent="." instance=ExtResource("1_4g4tu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.25, 0.1, -4.2)
 PLAYER_NUMBER = 4
 FRICTION = 0.75

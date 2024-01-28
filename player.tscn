@@ -27,17 +27,8 @@ collision_mask = 3
 collision_priority = 2.0
 axis_lock_linear_y = true
 script = ExtResource("1_4qlm8")
-PLAYER_NUMBER = null
-SPEED = null
-FRICTION = null
 BOUNCE_SPEED = 20
-DASH_LENGTH = null
 DASH_SPEED = 2
-PLAYER_COLOR_BASE = null
-PLAYER_COLOR_DARK = null
-PLAYER_COLOR_HIGHLIGHT = null
-PLAYER_COLOR = null
-MAX_HEALTH = null
 
 [node name="Sprites" parent="." instance=ExtResource("2_47dxv")]
 transform = Transform3D(1, 0, 0, 0, 0.258819, 0.965926, 0, -0.965926, 0.258819, 0, 0, 0.195)
