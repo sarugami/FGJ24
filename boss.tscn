@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://b5e8jl64hwe1m"]
+[gd_scene load_steps=19 format=3 uid="uid://b5e8jl64hwe1m"]
 
 [ext_resource type="Texture2D" uid="uid://bq3nolxxjs845" path="res://Sprites/Boss/boss_throne.png" id="1_mlq51"]
 [ext_resource type="Texture2D" uid="uid://d1kfp3d0jtg05" path="res://Sprites/Boss/boss_body.png" id="2_66w27"]
@@ -108,63 +108,65 @@ tracks/10/keys = {
 
 [sub_resource type="Animation" id="Animation_n60xl"]
 resource_name = "Boss_laugh"
+length = 0.5
 loop_mode = 1
+step = 0.05
 tracks/0/type = "position_3d"
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/path = NodePath("boss_body")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
-tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0, 0.5, 1, 0, 0.1, 0, 1, 1, 0, 0, 0)
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0, 0.25, 1, 0, 0.1, 0, 0.5, 1, 0, 0, 0)
 tracks/1/type = "position_3d"
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/path = NodePath("boss_eyes")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
-tracks/1/keys = PackedFloat32Array(0, 1, -0.320747, 0.476545, 0, 0.5, 1, -0.321, 0.6, 0, 1, 1, -0.320747, 0.476545, 0)
+tracks/1/keys = PackedFloat32Array(0, 1, -0.320747, 0.476545, 0, 0.25, 1, -0.321, 0.6, 0, 0.5, 1, -0.320747, 0.476545, 0)
 tracks/2/type = "position_3d"
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/path = NodePath("boss_crown")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
-tracks/2/keys = PackedFloat32Array(0, 1, 0, 1.36814, 0, 0.5, 1, 0, 1.41, 0, 1, 1, 0, 1.36814, 0)
+tracks/2/keys = PackedFloat32Array(0, 1, 0, 1.36814, 0, 0.25, 1, 0, 1.41, 0, 0.5, 1, 0, 1.36814, 0)
 tracks/3/type = "position_3d"
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/path = NodePath("boss_earL")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
-tracks/3/keys = PackedFloat32Array(0, 1, -1.53645, 0, 0, 0.5, 1, -1.536, 0.05, 0, 1, 1, -1.53645, 0, 0)
+tracks/3/keys = PackedFloat32Array(0, 1, -1.53645, 0, 0, 0.25, 1, -1.536, 0.05, 0, 0.5, 1, -1.53645, 0, 0)
 tracks/4/type = "position_3d"
 tracks/4/imported = false
 tracks/4/enabled = true
 tracks/4/path = NodePath("boss_earR")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
-tracks/4/keys = PackedFloat32Array(0, 1, 1.42515, -0.109314, 0, 0.5, 1, 1.425, -0.059, 0, 1, 1, 1.42515, -0.109314, 0)
+tracks/4/keys = PackedFloat32Array(0, 1, 1.42515, -0.109314, 0, 0.25, 1, 1.425, -0.059, 0, 0.5, 1, 1.42515, -0.109314, 0)
 tracks/5/type = "scale_3d"
 tracks/5/imported = false
 tracks/5/enabled = true
 tracks/5/path = NodePath("boss_mouth")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
-tracks/5/keys = PackedFloat32Array(0, 1, 1, 1, 1, 0.5, 1, 1, 0.85, 1, 1, 1, 1, 1, 1)
+tracks/5/keys = PackedFloat32Array(0, 1, 1, 1, 1, 0.25, 1, 1, 0.85, 1, 0.5, 1, 1, 1, 1)
 tracks/6/type = "position_3d"
 tracks/6/imported = false
 tracks/6/enabled = true
 tracks/6/path = NodePath("boss_mouth")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
-tracks/6/keys = PackedFloat32Array(0, 1, -0.309848, -0.464266, 0, 0.5, 1, -0.31, -0.404, 0, 1, 1, -0.309848, -0.464266, 0)
+tracks/6/keys = PackedFloat32Array(0, 1, -0.309848, -0.464266, 0, 0.25, 1, -0.31, -0.404, 0, 0.5, 1, -0.309848, -0.464266, 0)
 tracks/7/type = "scale_3d"
 tracks/7/imported = false
 tracks/7/enabled = true
 tracks/7/path = NodePath("boss_armL")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
-tracks/7/keys = PackedFloat32Array(0, 1, 1, 1, 1, 0.5, 1, 1, 1.05, 1, 1, 1, 1, 1, 1)
+tracks/7/keys = PackedFloat32Array(0, 1, 1, 1, 1, 0.25, 1, 1, 1.05, 1, 0.5, 1, 1, 1, 1)
 tracks/8/type = "scale_3d"
 tracks/8/imported = false
 tracks/8/enabled = true
@@ -203,6 +205,9 @@ _data = {
 "Boss_laugh": SubResource("Animation_n60xl")
 }
 
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_bhpgs"]
+radius = 2.11993
+
 [node name="Boss" type="Node3D"]
 
 [node name="boss_throne" type="Sprite3D" parent="."]
@@ -215,15 +220,14 @@ libraries = {
 }
 
 [node name="boss_body" type="Sprite3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0763954, 0)
 modulate = Color(0.745098, 0.843137, 0.176471, 1)
 render_priority = 2
 texture = ExtResource("2_66w27")
 
 [node name="boss_eyes" type="Sprite3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.32094, 0.570859, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.320747, 0.476545, 0)
 render_priority = 4
-texture = ExtResource("3_i2jtv")
+texture = ExtResource("3_s78qx")
 
 [node name="boss_legL" type="Sprite3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.828685, -1.01952, 0)
@@ -238,41 +242,42 @@ render_priority = 3
 texture = ExtResource("5_mcmlm")
 
 [node name="boss_mouth" type="Sprite3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.885407, 0, 0, 0, 1, -0.309964, -0.418226, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.309848, -0.464266, 0)
 render_priority = 3
-texture = ExtResource("6_4sc1s")
+texture = ExtResource("6_jqhbt")
 
 [node name="boss_earL" type="Sprite3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.53611, 0.0381977, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.53645, 0, 0)
 modulate = Color(0.745098, 0.843137, 0.176471, 1)
 render_priority = 1
 texture = ExtResource("7_lrynl")
 
 [node name="boss_earR" type="Sprite3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.42504, -0.0708763, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.42515, -0.109314, 0)
 modulate = Color(0.745098, 0.843137, 0.176471, 1)
 render_priority = 2
 texture = ExtResource("8_8wjho")
 
 [node name="boss_crown" type="Sprite3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.40012, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.36814, 0)
 modulate = Color(1, 0.666667, 0.196078, 1)
 render_priority = 1
 texture = ExtResource("9_6bjs1")
 
 [node name="boss_armL" type="Sprite3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1.0382, 0, 0, 0, 1, -1.15024, -0.66257, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.15024, -0.66257, 0)
 modulate = Color(0.745098, 0.843137, 0.176471, 1)
 render_priority = 1
 texture = ExtResource("10_03wi1")
 
 [node name="boss_fistL" type="Sprite3D" parent="boss_armL"]
 transform = Transform3D(0.54313, 0.839648, 0, -0.839648, 0.54313, 0, 0, 0, 1, -0.841176, -0.229196, 0)
+modulate = Color(0.745098, 0.843137, 0.176471, 1)
 render_priority = 4
 texture = ExtResource("11_drb6c")
 
 [node name="boss_armR" type="Sprite3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1.0382, 0, 0, 0, 1, 1.2613, -0.629619, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2613, -0.629619, 0)
 modulate = Color(0.745098, 0.843137, 0.176471, 1)
 render_priority = 2
 texture = ExtResource("12_nie6d")
@@ -280,5 +285,12 @@ texture = ExtResource("12_nie6d")
 [node name="boss_fistR" type="Sprite3D" parent="boss_armR"]
 transform = Transform3D(0.694746, -0.719255, 0, 0.719255, 0.694746, 0, 0, 0, 1, 0.626073, -0.340358, 0)
 flip_h = true
+modulate = Color(0.745098, 0.843137, 0.176471, 1)
 render_priority = 4
 texture = ExtResource("11_drb6c")
+
+[node name="Area3D" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.258819, -0.965926, 0, 0.965926, 0.258819, 0, -0.25, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("CylinderShape3D_bhpgs")

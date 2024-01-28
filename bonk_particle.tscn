@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://tad5jwrl732i"]
+[gd_scene load_steps=12 format=3 uid="uid://bjbyk1wxe00wp"]
 
 [ext_resource type="Script" path="res://bonk_particle.gd" id="1_fvuhg"]
 [ext_resource type="Texture2D" uid="uid://lnnka2s7qr7j" path="res://Sprites/Char/target.png" id="1_jxjas"]

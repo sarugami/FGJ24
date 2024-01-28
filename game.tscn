@@ -21,42 +21,10 @@
 [ext_resource type="AudioStream" uid="uid://cqsh8po8h82in" path="res://Sounds/yippee_death.ogg" id="15_myw2e"]
 
 [sub_resource type="Environment" id="Environment_4csi7"]
+background_mode = 1
+background_color = Color(0.0980392, 0.117647, 0.235294, 1)
 
-[sub_resource type="QuadMesh" id="QuadMesh_lbnv4"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6at5u"]
-transparency = 1
-cull_mode = 2
-albedo_color = Color(0.439216, 0, 0.662745, 1)
-albedo_texture = ExtResource("2_psycr")
-uv1_scale = Vector3(10.43, 10.43, 10.43)
-
-[sub_resource type="QuadMesh" id="QuadMesh_lj4k3"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mv5h2"]
-transparency = 1
-cull_mode = 2
-albedo_texture = ExtResource("2_psycr")
-uv1_scale = Vector3(6.54, 6.54, 6.54)
-
-[sub_resource type="QuadMesh" id="QuadMesh_rllqw"]
-
-[sub_resource type="Gradient" id="Gradient_ho3f4"]
-offsets = PackedFloat32Array(0.057377, 0.696721, 1)
-colors = PackedColorArray(0, 0, 0, 1, 0.94456, 0.250035, 0.77176, 1, 0.409318, 0.000250617, 0.455914, 1)
-
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_b4a5k"]
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_t0c8l"]
-color_ramp = SubResource("Gradient_ho3f4")
-noise = SubResource("FastNoiseLite_b4a5k")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_knx1g"]
-transparency = 1
-cull_mode = 2
-albedo_color = Color(0.14902, 0.14902, 0.14902, 1)
-albedo_texture = SubResource("NoiseTexture2D_t0c8l")
-uv1_scale = Vector3(3.91, 3.91, 3.91)
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h8qk3"]
 
 [node name="Game" type="Node3D"]
 script = ExtResource("1_ss7n6")
@@ -130,124 +98,129 @@ DEATH_SOUND = ExtResource("15_myw2e")
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_4csi7")
 
+[node name="Boss" parent="." instance=ExtResource("7_875xr")]
+transform = Transform3D(0.75, 0, 0, 0, 0.194114, 0.724444, 0, -0.724444, 0.194114, 0, 0.452246, 0)
+
+[node name="BG" parent="." instance=ExtResource("7_42c7h")]
+
+[node name="CSGCylinder3D15" type="CSGCylinder3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.65, -0.0751381, -6.3)
+material_override = SubResource("StandardMaterial3D_h8qk3")
+radius = 2.44
+height = 0.1
+sides = 6
+
+[node name="CSGCylinder3D14" type="CSGCylinder3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.65, -0.0751381, -6.3)
+material_override = SubResource("StandardMaterial3D_h8qk3")
+radius = 2.44
+height = 0.1
+sides = 6
+
+[node name="CSGCylinder3D11" type="CSGCylinder3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.3, -0.0751381, -4.2)
+material_override = SubResource("StandardMaterial3D_h8qk3")
+radius = 2.44
+height = 0.1
+sides = 6
+
+[node name="CSGCylinder3D8" type="CSGCylinder3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.3, -0.0751381, 0)
+material_override = SubResource("StandardMaterial3D_h8qk3")
+radius = 2.44
+height = 0.1
+sides = 6
+
+[node name="CSGCylinder3D10" type="CSGCylinder3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.3, -0.0751381, 4.2)
+material_override = SubResource("StandardMaterial3D_h8qk3")
+radius = 2.44
+height = 0.1
+sides = 6
+
+[node name="CSGCylinder3D12" type="CSGCylinder3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.3, -0.0751381, -4.2)
+material_override = SubResource("StandardMaterial3D_h8qk3")
+radius = 2.44
+height = 0.1
+sides = 6
+
+[node name="CSGCylinder3D13" type="CSGCylinder3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.3, -0.0751381, 4.2)
+material_override = SubResource("StandardMaterial3D_h8qk3")
+radius = 2.44
+height = 0.1
+sides = 6
+
+[node name="CSGCylinder3D9" type="CSGCylinder3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.3, -0.0751381, 0)
+material_override = SubResource("StandardMaterial3D_h8qk3")
+radius = 2.44
+height = 0.1
+sides = 6
+
+[node name="CSGCylinder3D3" type="CSGCylinder3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.65, -0.0751381, 2.1)
+material_override = SubResource("StandardMaterial3D_h8qk3")
+radius = 2.44
+height = 0.1
+sides = 6
+
+[node name="CSGCylinder3D16" type="CSGCylinder3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.65, -0.0751381, 6.3)
+material_override = SubResource("StandardMaterial3D_h8qk3")
+radius = 2.44
+height = 0.1
+sides = 6
+
+[node name="CSGCylinder3D17" type="CSGCylinder3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.65, -0.0751381, 6.3)
+material_override = SubResource("StandardMaterial3D_h8qk3")
+radius = 2.44
+height = 0.1
+sides = 6
+
+[node name="CSGCylinder3D7" type="CSGCylinder3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.65, -0.0751381, -2.1)
+material_override = SubResource("StandardMaterial3D_h8qk3")
+radius = 2.44
+height = 0.1
+sides = 6
+
+[node name="CSGCylinder3D4" type="CSGCylinder3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.65, -0.0751381, 2.1)
+material_override = SubResource("StandardMaterial3D_h8qk3")
+radius = 2.44
+height = 0.1
+sides = 6
+
+[node name="CSGCylinder3D5" type="CSGCylinder3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.65, -0.0751381, -2.1)
+material_override = SubResource("StandardMaterial3D_h8qk3")
+radius = 2.44
+height = 0.1
+sides = 6
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0751381, 4.2)
+material_override = SubResource("StandardMaterial3D_h8qk3")
+radius = 2.44
+height = 0.1
+sides = 6
+
+[node name="CSGCylinder3D6" type="CSGCylinder3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0751381, -4.2)
+material_override = SubResource("StandardMaterial3D_h8qk3")
+radius = 2.44
+height = 0.1
+sides = 6
+
 [node name="CSGCylinder3D" type="CSGCylinder3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0751381, 0)
+material_override = SubResource("StandardMaterial3D_h8qk3")
 use_collision = true
 collision_layer = 8
 collision_mask = 0
 radius = 2.44
-height = 0.001
+height = 0.1
 sides = 6
-
-[node name="CSGCylinder3D15" type="CSGCylinder3D" parent="CSGCylinder3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.65, 0, -6.3)
-radius = 2.44
-height = 0.001
-sides = 6
-
-[node name="CSGCylinder3D14" type="CSGCylinder3D" parent="CSGCylinder3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.65, 0, -6.3)
-radius = 2.44
-height = 0.001
-sides = 6
-
-[node name="CSGCylinder3D11" type="CSGCylinder3D" parent="CSGCylinder3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.3, 0, -4.2)
-radius = 2.44
-height = 0.001
-sides = 6
-
-[node name="CSGCylinder3D8" type="CSGCylinder3D" parent="CSGCylinder3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.3, 0, 0)
-radius = 2.44
-height = 0.001
-sides = 6
-
-[node name="CSGCylinder3D10" type="CSGCylinder3D" parent="CSGCylinder3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.3, 0, 4.2)
-radius = 2.44
-height = 0.001
-sides = 6
-
-[node name="CSGCylinder3D12" type="CSGCylinder3D" parent="CSGCylinder3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.3, 0, -4.2)
-radius = 2.44
-height = 0.001
-sides = 6
-
-[node name="CSGCylinder3D13" type="CSGCylinder3D" parent="CSGCylinder3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.3, 0, 4.2)
-radius = 2.44
-height = 0.001
-sides = 6
-
-[node name="CSGCylinder3D9" type="CSGCylinder3D" parent="CSGCylinder3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.3, 0, 0)
-radius = 2.44
-height = 0.001
-sides = 6
-
-[node name="CSGCylinder3D3" type="CSGCylinder3D" parent="CSGCylinder3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.65, 0, 2.1)
-radius = 2.44
-height = 0.001
-sides = 6
-
-[node name="CSGCylinder3D16" type="CSGCylinder3D" parent="CSGCylinder3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.65, 0, 6.3)
-radius = 2.44
-height = 0.001
-sides = 6
-
-[node name="CSGCylinder3D17" type="CSGCylinder3D" parent="CSGCylinder3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.65, 0, 6.3)
-radius = 2.44
-height = 0.001
-sides = 6
-
-[node name="CSGCylinder3D7" type="CSGCylinder3D" parent="CSGCylinder3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.65, 0, -2.1)
-radius = 2.44
-height = 0.001
-sides = 6
-
-[node name="CSGCylinder3D4" type="CSGCylinder3D" parent="CSGCylinder3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.65, 0, 2.1)
-radius = 2.44
-height = 0.001
-sides = 6
-
-[node name="CSGCylinder3D5" type="CSGCylinder3D" parent="CSGCylinder3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.65, 0, -2.1)
-radius = 2.44
-height = 0.001
-sides = 6
-
-[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="CSGCylinder3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4.2)
-radius = 2.44
-height = 0.001
-sides = 6
-
-[node name="CSGCylinder3D6" type="CSGCylinder3D" parent="CSGCylinder3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4.2)
-radius = 2.44
-height = 0.001
-sides = 6
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(-50, -4.37114e-06, 1.91069e-13, 0, -2.18557e-06, -50, 4.37114e-06, -50, 2.18557e-06, 0, -0.284, 0)
-mesh = SubResource("QuadMesh_lbnv4")
-surface_material_override/0 = SubResource("StandardMaterial3D_6at5u")
-script = ExtResource("3_34qty")
-
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
-transform = Transform3D(-50, -4.37114e-06, 1.91069e-13, 0, -2.18557e-06, -50, 4.37114e-06, -50, 2.18557e-06, 0, -0.284, 0)
-mesh = SubResource("QuadMesh_lj4k3")
-surface_material_override/0 = SubResource("StandardMaterial3D_mv5h2")
-script = ExtResource("4_2wss6")
-
-[node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
-transform = Transform3D(-50, -4.37114e-06, 1.91069e-13, 0, -2.18557e-06, -50, 4.37114e-06, -50, 2.18557e-06, 0, -5, 0)
-mesh = SubResource("QuadMesh_rllqw")
-surface_material_override/0 = SubResource("StandardMaterial3D_knx1g")
-script = ExtResource("5_cgiml")
