@@ -1,15 +1,15 @@
-[gd_scene load_steps=18 format=3 uid="uid://cnisgb7eskrlp"]
+[gd_scene load_steps=19 format=3 uid="uid://cnisgb7eskrlp"]
 
 [ext_resource type="PackedScene" uid="uid://dntbubkn7i4aa" path="res://player.tscn" id="1_4g4tu"]
 [ext_resource type="Script" path="res://game.gd" id="1_ss7n6"]
+[ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="2_a0iel"]
 [ext_resource type="Texture2D" uid="uid://boq30yrrbsu5j" path="res://Sprites/Untitled-1.png" id="2_psycr"]
 [ext_resource type="Script" path="res://smokescroll_xy.gd" id="3_34qty"]
 [ext_resource type="Script" path="res://smokescroll_x.gd" id="4_2wss6"]
 [ext_resource type="Script" path="res://smokescroll_y.gd" id="5_cgiml"]
+[ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3D.gd" id="8_roon0"]
 
 [sub_resource type="Environment" id="Environment_4csi7"]
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_nw3a2"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_lbnv4"]
 
@@ -51,7 +51,12 @@ uv1_scale = Vector3(3.91, 3.91, 3.91)
 script = ExtResource("1_ss7n6")
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.258819, 0.965926, 0, -0.965926, 0.258819, 0, 12, 5)
+transform = Transform3D(1, 0, 0, 0, 0.258819, 0.965926, 0, -0.965926, 0.258819, 0, 11.6911, 4.60583)
+current = true
+fov = 74.9976
+
+[node name="PhantomCameraHost" type="Node" parent="Camera3D"]
+script = ExtResource("2_a0iel")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.263317, -4.21688e-08, 0.964709, -0.964709, -1.151e-08, 0.263317, 1.76963e-15, -1, -4.37114e-08, 0, 7.38173, 0)
@@ -94,6 +99,9 @@ PLAYER_COLOR = Color(1, 0.709804, 0.74902, 1)
 environment = SubResource("Environment_4csi7")
 
 [node name="CSGCylinder3D" type="CSGCylinder3D" parent="."]
+use_collision = true
+collision_layer = 8
+collision_mask = 0
 radius = 2.4
 height = 0.001
 sides = 6
@@ -194,15 +202,6 @@ radius = 2.4
 height = 0.001
 sides = 6
 
-[node name="Darkness" type="Area3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -53, 0)
-visible = false
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Darkness"]
-transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 0, 1, 0)
-visible = false
-shape = SubResource("BoxShape3D_nw3a2")
-
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(-50, -4.37114e-06, 1.91069e-13, 0, -2.18557e-06, -50, 4.37114e-06, -50, 2.18557e-06, 0, -0.284, 0)
 mesh = SubResource("QuadMesh_lbnv4")
@@ -220,3 +219,23 @@ transform = Transform3D(-50, -4.37114e-06, 1.91069e-13, 0, -2.18557e-06, -50, 4.
 mesh = SubResource("QuadMesh_rllqw")
 surface_material_override/0 = SubResource("StandardMaterial3D_knx1g")
 script = ExtResource("5_cgiml")
+
+[node name="PhantomCamera3D" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.258819, 0.965926, 0, -0.965926, 0.258819, 0, 11.6911, 4.60583)
+script = ExtResource("8_roon0")
+priority_override = false
+priority = 0
+follow_mode = 3
+follow_group = Array[NodePath]([NodePath("../Player"), NodePath("../Player2"), NodePath("../Player3"), NodePath("../Player4")])
+follow_parameters/auto_distance = true
+follow_parameters/min_distance = 6.0
+follow_parameters/max_distance = 12.0
+follow_parameters/auto_distance_divisor = 11.0
+follow_parameters/target_offset = Vector3(0, 0, 1.5)
+follow_parameters/damping = true
+follow_parameters/damping_value = 15.0
+look_at_mode = 0
+tween_parameters = null
+tween_on_load = true
+inactive_update_mode = 0
+camera_3D_resource = null

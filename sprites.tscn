@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://o2fddfxi4xa1"]
+[gd_scene load_steps=18 format=3 uid="uid://o2fddfxi4xa1"]
 
 [ext_resource type="Texture2D" uid="uid://dj5lbfo4yodoj" path="res://Sprites/Char/bonk_leg.png" id="1_7l88u"]
 [ext_resource type="Script" path="res://sprites.gd" id="1_i5gep"]
@@ -6,11 +6,175 @@
 [ext_resource type="Texture2D" uid="uid://bjhoxyag80jsm" path="res://Sprites/Char/bonk_eyeL.png" id="3_s6mwh"]
 [ext_resource type="Texture2D" uid="uid://cgdresgip174o" path="res://Sprites/Char/bonk_pupilL.png" id="4_u8vub"]
 [ext_resource type="Texture2D" uid="uid://bsprc5gid1612" path="res://Sprites/Char/bonk_mouth.png" id="5_csb16"]
-[ext_resource type="Texture2D" uid="uid://0b83sgcbt2iv" path="res://Sprites/Char/bonk_nose.png" id="6_doi40"]
 [ext_resource type="Texture2D" uid="uid://ttitylyqepyh" path="res://Sprites/Char/bonk_eyeR.png" id="7_xs7ty"]
 [ext_resource type="Texture2D" uid="uid://crsr2vf1juxbl" path="res://Sprites/Char/bonk_pupilR.png" id="8_i2fsk"]
 [ext_resource type="Texture2D" uid="uid://dioo7ikskmtps" path="res://Sprites/Char/bonk_body.png" id="9_fp5vi"]
 [ext_resource type="Texture2D" uid="uid://l30p4ub640xi" path="res://Sprites/Char/bonk_decal.png" id="10_qeqij"]
+[ext_resource type="Texture2D" uid="uid://c7j5pb53rup5k" path="res://Sprites/Char/bonk_hammer1.png" id="12_kgv6d"]
+[ext_resource type="Texture2D" uid="uid://ol2c51q8emqi" path="res://Sprites/Char/swoosh.png" id="13_ulsgr"]
+
+[sub_resource type="Animation" id="Animation_v2rw0"]
+resource_name = "Attack"
+length = 0.6
+loop_mode = 1
+step = 0.02
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Spriteholder/Body")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 0.43, 0, 0.1, 1, 0, 0.48, 0, 0.54, 1, 0, 0.48, 0, 0.7, 1, 0, 0.435, 0)
+tracks/1/type = "rotation_3d"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Spriteholder/Body")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1, 0.18, 1, 0, 0, 0.131, 0.991, 0.44, 1, 0, 0, 0.131, 0.991, 0.6, 1, 0, 0, 0, 1)
+tracks/2/type = "rotation_3d"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Spriteholder/Body/EarL")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1, 0.12, 1, 0, 0, 0.174, 0.985, 0.34, 1, 0, 0, 0.174, 0.985, 0.6, 1, 0, 0, 0, 1)
+tracks/3/type = "rotation_3d"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Spriteholder/Body/EarR")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = PackedFloat32Array(0, 1, 0, 0, 0, 0.999999, 0.12, 1, 0, 0, -0.174, 0.985, 0.34, 1, 0, 0, -0.174, 0.985, 0.6, 1, 0, 0, 0, 1)
+tracks/4/type = "position_3d"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Spriteholder/Nose")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = PackedFloat32Array(0, 1, -0.126, 0.283, 0, 0.1, 1, -0.126, 0.283, 0, 0.18, 1, -0.126, 0.32, 0, 0.44, 1, -0.126, 0.32, 0, 0.6, 1, -0.126, 0.283, 0)
+tracks/5/type = "position_3d"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Spriteholder/EyeR")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = PackedFloat32Array(0, 1, 0.161, 0.335, 0, 0.2, 1, 0.161, 0.375, 0, 0.36, 1, 0.161, 0.375, 0, 0.6, 1, 0.161, 0.335, 0)
+tracks/6/type = "position_3d"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Spriteholder/EyeL")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = PackedFloat32Array(0, 1, -0.311, 0.385, 0, 0.2, 1, -0.311, 0.39, 0, 0.36, 1, -0.311, 0.39, 0, 0.6, 1, -0.311, 0.385, 0)
+tracks/7/type = "position_3d"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Spriteholder/EyeL/EyeLPupil")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = PackedFloat32Array(0, 1, 0.095, 0, 0, 0.2, 1, 0.095, -0.025, 0, 0.3, 1, 0.096, -7.45058e-09, 0, 0.4, 1, 0.097, 0.025, 0, 0.6, 1, 0.097, 0, 0)
+tracks/8/type = "position_3d"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Spriteholder/EyeR/EyeRPupil")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = PackedFloat32Array(0, 1, 0.180468, -0.0407642, 0, 0.2, 1, 0.18, -0.076, 0, 0.3, 1, 0.18, -0.041, 0, 0.4, 1, 0.18, 0.011, 0, 0.6, 1, 0.180468, -0.0407642, 0)
+tracks/9/type = "position_3d"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Spriteholder/Mouth")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = PackedFloat32Array(0, 1, -0.0916021, 0.150078, 0, 0.12, 1, -0.092, 0.2, 0, 0.48, 1, -0.092, 0.2, 0, 0.6, 1, -0.0916021, 0.150078, 0)
+tracks/10/type = "position_3d"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Spriteholder")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = PackedFloat32Array(0, 1, 0, 0, 0, 0.16, 1, 0, 0.1, 0, 0.46, 1, 0, 0.1, 0, 0.6, 1, 0, 0, 0)
+tracks/11/type = "position_3d"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("Spriteholder/LegR")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = PackedFloat32Array(0, 1, 0.208, 0.226, 0, 0.12, 1, 0.208, 0.3, 0, 0.46, 1, 0.208, 0.3, 0, 0.6, 1, 0.208, 0.226, 0)
+tracks/12/type = "position_3d"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("Spriteholder/LegL")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = PackedFloat32Array(0, 1, -0.217, 0.243, 0, 0.12, 1, -0.217, 0.3, 0, 0.34, 1, -0.217, 0.3, 0, 0.6, 1, -0.217, 0.243, 0)
+tracks/13/type = "rotation_3d"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("Spriteholder/LegL")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1, 0.6, 1, 0, 0, 0, 1)
+tracks/14/type = "rotation_3d"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("Spriteholder/LegR")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1, 0.6, 1, 0, 0, 0, 1)
+tracks/15/type = "rotation_3d"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("Spriteholder/Nose")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1)
+tracks/16/type = "position_3d"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("Spriteholder/Hammer")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = PackedFloat32Array(0, 1, -0.5, 0.25, 0, 0.0875, 1, 0.25, 0, 0, 0.36, 1, 0.25, 0, 0, 0.56, 1, -0.5, 0.25, 0)
+tracks/17/type = "rotation_3d"
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/path = NodePath("Spriteholder/Hammer")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1, 0.0175, 1, 0, 0, 0.383, 0.924, 0.035, 1, 0, 0, 0.707, 0.707, 0.0525, 1, 0, 0, 0.924, 0.383, 0.07, 1, 0, 0, 1, 0, 0.0875, 1, 0, 0, 0.924, -0.383, 0.36, 1, 0, 0, 0.924, -0.383, 0.56, 1, 0, 0, 0, 1)
+tracks/18/type = "value"
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/path = NodePath("Spriteholder/Swoosh:visible")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/keys = {
+"times": PackedFloat32Array(0, 0.0525, 0.32, 0.34, 0.58),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [false, true, true, false, false]
+}
+tracks/19/type = "value"
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/path = NodePath("Spriteholder/Swoosh:modulate")
+tracks/19/interp = 1
+tracks/19/loop_wrap = true
+tracks/19/keys = {
+"times": PackedFloat32Array(0, 0.0525, 0.105, 0.175, 0.34),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/20/type = "rotation_3d"
+tracks/20/imported = false
+tracks/20/enabled = true
+tracks/20/path = NodePath("Spriteholder")
+tracks/20/interp = 1
+tracks/20/loop_wrap = true
+tracks/20/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1, 0.18, 1, 0, 0, 0.131, 0.991, 0.5, 1, 0, 0, 0.131, 0.991, 0.6, 1, 0, 0, 0, 1)
 
 [sub_resource type="Animation" id="Animation_0q2ms"]
 resource_name = "Idle"
@@ -92,35 +256,35 @@ tracks/10/enabled = true
 tracks/10/path = NodePath("Spriteholder")
 tracks/10/interp = 1
 tracks/10/loop_wrap = true
-tracks/10/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1.4, 1, 0, 0, 0)
+tracks/10/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1.6, 1, 0, 0, 0)
 tracks/11/type = "position_3d"
 tracks/11/imported = false
 tracks/11/enabled = true
 tracks/11/path = NodePath("Spriteholder/LegR")
 tracks/11/interp = 1
 tracks/11/loop_wrap = true
-tracks/11/keys = PackedFloat32Array(0, 1, 0.208, 0.226, 0, 1.4, 1, 0.208, 0.226, 0)
+tracks/11/keys = PackedFloat32Array(0, 1, 0.208, 0.226, 0, 1.6, 1, 0.208, 0.226, 0)
 tracks/12/type = "position_3d"
 tracks/12/imported = false
 tracks/12/enabled = true
 tracks/12/path = NodePath("Spriteholder/LegL")
 tracks/12/interp = 1
 tracks/12/loop_wrap = true
-tracks/12/keys = PackedFloat32Array(0, 1, -0.217, 0.243, 0, 1.4, 1, -0.217, 0.243, 0)
+tracks/12/keys = PackedFloat32Array(0, 1, -0.217, 0.243, 0, 1.6, 1, -0.217, 0.243, 0)
 tracks/13/type = "rotation_3d"
 tracks/13/imported = false
 tracks/13/enabled = true
 tracks/13/path = NodePath("Spriteholder/LegL")
 tracks/13/interp = 1
 tracks/13/loop_wrap = true
-tracks/13/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1, 1.4, 1, 0, 0, 0, 1)
+tracks/13/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1, 1.6, 1, 0, 0, 0, 1)
 tracks/14/type = "rotation_3d"
 tracks/14/imported = false
 tracks/14/enabled = true
 tracks/14/path = NodePath("Spriteholder/LegR")
 tracks/14/interp = 1
 tracks/14/loop_wrap = true
-tracks/14/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1, 1.4, 1, 0, 0, 0, 1)
+tracks/14/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1, 1.6, 1, 0, 0, 0, 1)
 tracks/15/type = "rotation_3d"
 tracks/15/imported = false
 tracks/15/enabled = true
@@ -128,6 +292,51 @@ tracks/15/path = NodePath("Spriteholder/Nose")
 tracks/15/interp = 1
 tracks/15/loop_wrap = true
 tracks/15/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1, 1.4, 1, 0, 0, 0, 1)
+tracks/16/type = "position_3d"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("Spriteholder/Hammer")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = PackedFloat32Array(0, 1, -0.5, 0.25, 0, 1.6, 1, -0.5, 0.25, 0)
+tracks/17/type = "rotation_3d"
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/path = NodePath("Spriteholder/Hammer")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1, 1.6, 1, 0, 0, 0, 1)
+tracks/18/type = "rotation_3d"
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/path = NodePath("Spriteholder")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1, 1.6, 1, 0, 0, 0, 1)
+tracks/19/type = "value"
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/path = NodePath("Spriteholder/Swoosh:visible")
+tracks/19/interp = 1
+tracks/19/loop_wrap = true
+tracks/19/keys = {
+"times": PackedFloat32Array(0, 1.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, false]
+}
+tracks/20/type = "value"
+tracks/20/imported = false
+tracks/20/enabled = true
+tracks/20/path = NodePath("Spriteholder/Swoosh:modulate")
+tracks/20/interp = 1
+tracks/20/loop_wrap = true
+tracks/20/keys = {
+"times": PackedFloat32Array(0, 1.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_nwpqo"]
 length = 0.001
@@ -249,9 +458,55 @@ tracks/15/path = NodePath("Spriteholder/Nose")
 tracks/15/interp = 1
 tracks/15/loop_wrap = true
 tracks/15/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1, 0.125, 1, 0, 0, 0.044, 0.999, 0.25, 1, 0, 0, -0.044, 0.999, 0.375, 1, 0, 0, 0.044, 0.999, 0.5, 1, 0, 0, 0, 1)
+tracks/16/type = "position_3d"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("Spriteholder/Hammer")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = PackedFloat32Array(0, 1, -0.5, 0.25, 0, 0.5, 1, -0.5, 0.25, 0)
+tracks/17/type = "rotation_3d"
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/path = NodePath("Spriteholder/Hammer")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1, 0.5, 1, 0, 0, 0, 1)
+tracks/18/type = "rotation_3d"
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/path = NodePath("Spriteholder")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1, 0.5, 1, 0, 0, 0, 1)
+tracks/19/type = "value"
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/path = NodePath("Spriteholder/Swoosh:visible")
+tracks/19/interp = 1
+tracks/19/loop_wrap = true
+tracks/19/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, false]
+}
+tracks/20/type = "value"
+tracks/20/imported = false
+tracks/20/enabled = true
+tracks/20/path = NodePath("Spriteholder/Swoosh:modulate")
+tracks/20/interp = 1
+tracks/20/loop_wrap = true
+tracks/20/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_nj6ty"]
 _data = {
+"Attack": SubResource("Animation_v2rw0"),
 "Idle": SubResource("Animation_0q2ms"),
 "RESET": SubResource("Animation_nwpqo"),
 "Run": SubResource("Animation_6hops")
@@ -286,7 +541,7 @@ texture = ExtResource("4_u8vub")
 [node name="Nose" type="Sprite3D" parent="Spriteholder"]
 transform = Transform3D(0.25, 0, 0, 0, 0.249999, 0, 0, 0, 0.249999, -0.126, 0.283, 0)
 render_priority = 14
-texture = ExtResource("6_doi40")
+texture = ExtResource("13_ulsgr")
 
 [node name="Mouth" type="Sprite3D" parent="Spriteholder"]
 transform = Transform3D(0.249886, -0.00754435, 0, 0.00754433, 0.249885, 0, 0, 0, 0.249999, -0.0916021, 0.150078, 0)
@@ -323,6 +578,18 @@ texture = ExtResource("2_p6jv0")
 [node name="Decal" type="Sprite3D" parent="Spriteholder/Body"]
 render_priority = 11
 texture = ExtResource("10_qeqij")
+
+[node name="Hammer" type="Sprite3D" parent="Spriteholder"]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, -0.5, 0.25, 0)
+render_priority = 20
+texture = ExtResource("12_kgv6d")
+
+[node name="Swoosh" type="Sprite3D" parent="Spriteholder"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.175, 0.095, 0)
+visible = false
+modulate = Color(1, 1, 1, 0)
+render_priority = 22
+texture = ExtResource("13_ulsgr")
 
 [node name="Animation" type="AnimationPlayer" parent="."]
 unique_name_in_owner = true

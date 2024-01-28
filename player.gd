@@ -57,6 +57,7 @@ func _process(delta):
 
 	if currentHealth <= 0:
 		visible = false
+		set_process_mode(PROCESS_MODE_DISABLED) 
 
 func _physics_process(_delta):
 	## input handling
@@ -100,6 +101,17 @@ func _physics_process(_delta):
 		#velocity = Vector3(clamp(bounce_vector.x, -BOUNCE_SPEED, BOUNCE_SPEED), 0, clamp(bounce_vector.z, -BOUNCE_SPEED, BOUNCE_SPEED))
 		#for i in collision_info.get_collision_count:
 			#if collision_info.get_collider(i).get
+	
+	var space_state = get_world_3d().direct_space_state
+	var origin = position
+	var end = origin + Vector3(0, -5, 0)
+	var query = PhysicsRayQueryParameters3D.create(origin, end)
+	query.collide_with_areas = true
+
+	var result = space_state.intersect_ray(query)
+
+	if result.is_empty():
+		currentHealth -= 1
 
 func _input(event):
 	if event.is_action_pressed("dash_" + str(PLAYER_NUMBER)):
@@ -132,6 +144,7 @@ func stopAttack():
 		attackAreaCollider.disabled = false
 		movement_enabled = false
 		bonk_effect_timer.start()
+		(sprites.find_child("Animation") as AnimationPlayer).play("Attack")
 
 func _on_bonk_charge_timer_timeout():
 	bonk_ready = true
