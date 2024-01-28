@@ -1,5 +1,7 @@
 extends CharacterBody3D
 
+const BONK_PARTICLE = preload("res://bonk_particle.tscn")
+
 @export var PLAYER_NUMBER = 1
 @export var SPEED = 5.0
 @export var FRICTION = 1.5
@@ -11,6 +13,10 @@ extends CharacterBody3D
 @export var PLAYER_COLOR_HIGHLIGHT = Color("green")
 @export var PLAYER_COLOR = Color("green")
 @export var MAX_HEALTH = 100.0
+@export var DASH_SOUND: AudioStreamPlayer
+@export var ATTACK_SOUND: AudioStreamPlayer
+@export var HIT_SOUND: AudioStreamPlayer
+@export var DEATH_SOUND: AudioStreamPlayer
 
 @onready var dash_timer = $DashTimer
 @onready var bonk_charge_timer = $BonkChargeTimer
@@ -24,7 +30,6 @@ extends CharacterBody3D
 @onready var aim_direction = $AttackArea/AimDirection
 @onready var aim_reticle = $AttackArea/Marker3D/AimReticle
 @onready var health = $PlayerUi/Health
-
 
 var direction
 var can_dash = true
@@ -57,6 +62,7 @@ func _process(delta):
 
 	if currentHealth <= 0:
 		visible = false
+		#queue_free()
 		set_process_mode(PROCESS_MODE_DISABLED) 
 
 func _physics_process(_delta):
@@ -146,6 +152,8 @@ func stopAttack():
 		movement_enabled = false
 		bonk_effect_timer.start()
 		(sprites.find_child("Animation") as AnimationPlayer).play("Attack")
+		var particleInstance = BONK_PARTICLE.instantiate()
+		aim_reticle.add_child(particleInstance)
 
 func _on_bonk_charge_timer_timeout():
 	bonk_ready = true
