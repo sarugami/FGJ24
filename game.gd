@@ -31,7 +31,7 @@ func _process(delta):
 		isGameEnd = true
 		var endscreenInstance = OVER_SCREEN.instantiate()
 		var winner = playersAlive[0].name
-		(playersAlive[0].get_child("VictoryPlayer") as AudioStreamPlayer).play()
+		#(playersAlive[0].get_child("VictoryPlayer") as AudioStreamPlayer).play()
 		(endscreenInstance.find_child("Label") as Label).text = "Winner is " + winner + " Press enter to restart"
 		add_child(endscreenInstance)
 
