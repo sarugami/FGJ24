@@ -72,7 +72,7 @@ func _process(delta):
 		deathPlayer.play()
 		visible = false
 		#queue_free()
-		set_process_mode(PROCESS_MODE_DISABLED) 
+		#set_process_mode(PROCESS_MODE_DISABLED) 
 
 func _physics_process(_delta):
 	## input handling
