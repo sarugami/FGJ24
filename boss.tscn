@@ -1,6 +1,7 @@
-[gd_scene load_steps=19 format=3 uid="uid://b5e8jl64hwe1m"]
+[gd_scene load_steps=20 format=3 uid="uid://b5e8jl64hwe1m"]
 
 [ext_resource type="Texture2D" uid="uid://bq3nolxxjs845" path="res://Sprites/Boss/boss_throne.png" id="1_mlq51"]
+[ext_resource type="Script" path="res://boss.gd" id="1_n47x5"]
 [ext_resource type="Texture2D" uid="uid://d1kfp3d0jtg05" path="res://Sprites/Boss/boss_body.png" id="2_66w27"]
 [ext_resource type="Texture2D" uid="uid://cvbvawye2ruld" path="res://Sprites/Boss/boss_eyes.png" id="3_i2jtv"]
 [ext_resource type="Texture2D" uid="uid://b3qlj1pehp1b5" path="res://Sprites/Boss/boss_eyes_happy.png" id="3_s78qx"]
@@ -209,6 +210,7 @@ _data = {
 radius = 2.11993
 
 [node name="Boss" type="Node3D"]
+script = ExtResource("1_n47x5")
 
 [node name="boss_throne" type="Sprite3D" parent="."]
 modulate = Color(0.470588, 0.568627, 0.647059, 1)
