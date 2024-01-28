@@ -4,6 +4,7 @@ extends Node3D
 @onready var player_3 = $Plump
 @onready var player_4 = $Yippee
 @onready var players = [player_1, player_2, player_3, player_4]
+@onready var boos : Object
 
 const OVER_SCREEN = preload("res://endscore.tscn")
 
@@ -21,14 +22,16 @@ func _process(delta):
 		if player.visible:
 			playersAlive.append(player)
 	
-	if alivePlayerCount > playersAlive.size()
+	if alivePlayerCount > playersAlive.size():
+		alivePlayerCount = playersAlive.size()
+		#(boss.get_child("Animator") as AnimationPlayer).play("Boss_laugh")
 
 	if playersAlive.size() <= 1:
 		#TODO: give hat and end round
 		isGameEnd = true
 		var endscreenInstance = OVER_SCREEN.instantiate()
 		var winner = playersAlive[0].name
-		(winner.get_child("VictoryPlayer") as AudioStreamPlayer).play()
+		(playersAlive[0].get_child("VictoryPlayer") as AudioStreamPlayer).play()
 		(endscreenInstance.find_child("Label") as Label).text = "Winner is " + winner + " Press enter to restart"
 		add_child(endscreenInstance)
 

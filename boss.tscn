@@ -227,7 +227,7 @@ texture = ExtResource("2_66w27")
 [node name="boss_eyes" type="Sprite3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.320747, 0.476545, 0)
 render_priority = 4
-texture = ExtResource("3_s78qx")
+texture = ExtResource("3_i2jtv")
 
 [node name="boss_legL" type="Sprite3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.828685, -1.01952, 0)
@@ -244,7 +244,7 @@ texture = ExtResource("5_mcmlm")
 [node name="boss_mouth" type="Sprite3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.309848, -0.464266, 0)
 render_priority = 3
-texture = ExtResource("6_jqhbt")
+texture = ExtResource("6_4sc1s")
 
 [node name="boss_earL" type="Sprite3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.53645, 0, 0)
