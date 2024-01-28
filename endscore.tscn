@@ -4,7 +4,7 @@
 
 [sub_resource type="Theme" id="Theme_h255s"]
 default_font = ExtResource("1_rk6bg")
-default_font_size = 32
+default_font_size = 64
 
 [node name="Endscore" type="Control"]
 layout_mode = 3
