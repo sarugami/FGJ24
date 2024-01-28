@@ -137,7 +137,7 @@ tracks/16/enabled = true
 tracks/16/path = NodePath("Spriteholder/Hammer")
 tracks/16/interp = 1
 tracks/16/loop_wrap = true
-tracks/16/keys = PackedFloat32Array(0, 1, -0.5, 0.25, 0, 0.0875, 1, 0.25, 0, 0, 0.36, 1, 0.25, 0, 0, 0.56, 1, -0.5, 0.25, 0)
+tracks/16/keys = PackedFloat32Array(0, 1, -0.5, 0.25, 0, 0.0875, 1, 0.25, 0.05, 0, 0.36, 1, 0.25, 0.05, 0, 0.56, 1, -0.5, 0.25, 0)
 tracks/17/type = "rotation_3d"
 tracks/17/imported = false
 tracks/17/enabled = true
@@ -536,7 +536,7 @@ render_priority = 12
 texture = ExtResource("3_s6mwh")
 
 [node name="EyeLPupil" type="Sprite3D" parent="Spriteholder/EyeL"]
-transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, 1, 0.096197, 0.00492515, 0)
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0963099, 0.0077482, 0)
 render_priority = 13
 texture = ExtResource("4_u8vub")
 
@@ -557,7 +557,7 @@ render_priority = 15
 texture = ExtResource("7_xs7ty")
 
 [node name="EyeRPupil" type="Sprite3D" parent="Spriteholder/EyeR"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.18, -0.0307557, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.18, -0.0248837, 0)
 render_priority = 16
 texture = ExtResource("8_i2fsk")
 
@@ -582,13 +582,13 @@ render_priority = 11
 texture = ExtResource("10_qeqij")
 
 [node name="Hammer" type="Sprite3D" parent="Spriteholder"]
-transform = Transform3D(-0.423926, 0.424602, -7.07925e-05, -0.110281, -0.110009, 0.579428, 0.410031, 0.409403, 0.155768, 0.25, 0, 0)
+transform = Transform3D(-0.423926, 0.424602, -7.08103e-05, -0.110281, -0.110009, 0.579428, 0.410031, 0.409403, 0.155768, 0.25, 0.05, 0)
 render_priority = 20
 texture = ExtResource("12_kgv6d")
 
 [node name="Swoosh" type="Sprite3D" parent="Spriteholder"]
 transform = Transform3D(0.5, 0, 0, 0, 0.12941, 0.482963, 0, -0.482963, 0.12941, -0.175, 0.095, 0)
-modulate = Color(1, 1, 1, 0.123026)
+modulate = Color(1, 1, 1, 0.0545888)
 render_priority = 22
 texture = ExtResource("13_ulsgr")
 
